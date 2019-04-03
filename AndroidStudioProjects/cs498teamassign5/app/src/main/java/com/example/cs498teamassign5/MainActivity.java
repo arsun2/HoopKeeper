@@ -8,8 +8,8 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener {
+    public static String Main_Activity_Game_Event = "Main_Activity_Game_Event";
     private static final int ADD_EVENT_ACTIVITY_REQUEST = 1;
-
     private Button AddEventButton;
     private ArrayList<GameEvent> gameLog;
 
@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void onClick(View v){
         if(v.getId() == R.id.add_event_button){
-            Intent intent = new Intent(this, AddEventActivity.class);
+            Intent intent = new Intent(this, SelectTeamActivity.class);
             startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
         }
     }
