@@ -69,7 +69,7 @@
         android:text="49" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/add_score_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText3"
@@ -78,23 +78,23 @@
         android:text="Point" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/miss_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_below="@+id/button"
+        android:layout_alignLeft="@+id/add_score_button"
+        android:layout_alignStart="@+id/add_score_button"
+        android:layout_below="@+id/add_score_button"
         android:backgroundTint="#FF0000"
         android:layout_marginTop="27dp"
         android:text="Miss" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/rebound_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_below="@+id/button2"
+        android:layout_alignLeft="@+id/miss_button"
+        android:layout_alignStart="@+id/miss_button"
+        android:layout_below="@+id/miss_button"
         android:backgroundTint="#00FFFF"
         android:layout_marginTop="27dp"
         android:text="Rebound" />
@@ -114,26 +114,26 @@
         android:id="@+id/view2" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/steal_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/rebound_button"
+        android:layout_alignStart="@+id/rebound_button"
+        android:layout_below="@+id/rebound_button"
         android:backgroundTint="#00FFFF"
         android:layout_marginTop="26dp"
-        android:text="Illegal" />
+        android:text="Steal" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/foul_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4"
-        android:layout_below="@+id/button4"
+        android:layout_alignLeft="@+id/steal_button"
+        android:layout_alignStart="@+id/steal_button"
+        android:layout_below="@+id/steal_button"
         android:backgroundTint="#00FFFF"
         android:layout_marginTop="22dp"
-        android:text="Other" />
+        android:text="Foul" />
 
     <TextView
         android:id="@+id/textView3"

@@ -3,8 +3,10 @@
     <string name="team_1">team 1</string>
     <string name="team_2">team 2</string>
     <string name="point">Point</string>
+    <string name="miss">Miss</string>
+    <string name="rebound">Rebound</string>
+    <string name="steal">Steal</string>
     <string name="foul">Foul</string>
     <string name="assist">Assist</string>
     <string name="block">Block</string>
-    <string name="rebound">Rebound</string>
 </resources>
