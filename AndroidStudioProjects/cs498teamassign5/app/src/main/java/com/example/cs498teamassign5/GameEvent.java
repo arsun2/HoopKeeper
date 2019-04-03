@@ -3,13 +3,13 @@ package com.example.cs498teamassign5;
 /**
  * this is the struct for game event
  * Point 1, 2, 3
- * Team 1: Away Team, Team 0: home team
+ * team: team 1 or 2
  * and different attributes for other event
  * WARNING: need to update parseStrForInfo if new info is added
  */
 public class GameEvent {
     int point = 0;
-    int team = -1;
+    int team = 0;
     int playerNumber = -1;
     boolean rebound = false;
     boolean foul = false;
@@ -23,17 +23,17 @@ public class GameEvent {
      *
      * @param str info generate during user interaction
      *            format should be XXX:XXX:XXX:XXX:
-     *            e.g. Home Team:Player1:foul:
+     *            e.g. "Team1:Player1:foul:"
      */
     private void parseStrForInfo(String str){
         String [] arr = str.split(":");
         for(String info : arr){
             switch(info){
-                case "Home Team":
-                    this.team = 0;
-                    break;
-                case "Away Team":
+                case "Team1":
                     this.team = 1;
+                    break;
+                case "Team2":
+                    this.team = 2;
                     break;
                 case "foul":
                     this.foul = true;
@@ -41,13 +41,13 @@ public class GameEvent {
                 case "block":
                     this.block = true;
                     break;
-                case "1 Point":
+                case "1Point":
                     this.point = 1;
                     break;
-                case "2 Point":
+                case "2Point":
                     this.point = 2;
                     break;
-                case "3 Point":
+                case "3Point":
                     this.point = 3;
                     break;
                 case "rebound":
