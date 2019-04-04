@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">cs498teamassign5</string>
     <string name="team_1">team 1</string>
+    <string name="my_player"> My Player </string>
     <string name="team_2">team 2</string>
     <string name="point">Point</string>
     <string name="foul">Foul</string>

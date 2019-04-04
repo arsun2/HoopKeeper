@@ -39,10 +39,9 @@ public class AddScoreActivity extends Activity implements View.OnClickListener {
 
         if(clickId == R.id.one_point_button){
             info = info + "1Point:";
-            Intent returnIntent = new Intent();
-            returnIntent.putExtra(ADD_SCORE_RETURN_STRING, info);
-            setResult(RESULT_OK, returnIntent);
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("ans", info);
+            setResult(RESULT_OK, intent);
             startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
         } else if (clickId == R.id.two_point_button){
             info = info + "2Point:";
@@ -53,6 +52,8 @@ public class AddScoreActivity extends Activity implements View.OnClickListener {
         } else if (clickId == R.id.three_point_button) {
             info = info + "3Point:";
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("ans", info);
+            setResult(RESULT_OK, intent);
             startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
         } else if (clickId == R.id.submitButton){
             Intent intent = new Intent(this, MainActivity.class);

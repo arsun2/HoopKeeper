@@ -27,10 +27,18 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
     }
 
     public void onClick(View v){
+        /*Codes are
+        * "MyPlayer:" for My Player
+        * "OpposingTeam:" for Opposing Team
+        * "MyTeam:" For my team, but not my player
+        */
+
         if(v.getId() == R.id.team_1_button) {
-            info = "Team1:";
-        } else {
-            info = "Team2:";
+            info = "MyPlayer:";
+        } else if(v.getId() == R.id.team_2_button){
+            info = "OpposingTeam:";
+        } else if(v.getId() == R.id.button6){
+            info = "MyTeam:";
         }
         Intent intent = new Intent(this, AddEventActivity.class);
         intent.putExtra(Select_Team_Event, info);
