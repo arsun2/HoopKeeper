@@ -29,13 +29,17 @@ public class AddScoreActivity extends Activity implements View.OnClickListener {
         TwoPointButton.setOnClickListener(this);
         ThreePointButton.setOnClickListener(this);
         SubmitButton.setOnClickListener(this);
+
+        Intent i = getIntent();
+        info = i.getStringExtra("ans");
+        System.out.println("Score string is: " + info);
     }
 
     public void onClick(View v){
         int clickId = v.getId();
 
         Intent AddEventIntent = getIntent();
-        info = AddEventIntent.getStringExtra(AddEventActivity.Add_Event_String);
+        //info = AddEventIntent.getStringExtra(AddEventActivity.Add_Event_String);
 
         if(clickId == R.id.one_point_button){
             info = info + "1Point:";
@@ -60,7 +64,6 @@ public class AddScoreActivity extends Activity implements View.OnClickListener {
             startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
         }
 
-        System.out.println("yolo");
         Intent returnIntent = new Intent();
         returnIntent.putExtra(ADD_SCORE_RETURN_STRING, info);
         setResult(RESULT_OK, returnIntent);

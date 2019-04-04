@@ -9,6 +9,7 @@ import android.widget.Button;
 public class SelectTeamActivity extends Activity implements View.OnClickListener {
     private Button TeamOneButton;
     private Button TeamTwoButton;
+    private Button OtherPlayerButton;
     private static final int ADD_EVENT_ACTIVITY_REQUEST = 1;
     public static String Select_Team_Event = "Select_Team_Event";
     public static String SELECT_TEAM_RETURN_STRING = "SELECT_TEAM_RETURN_STRING";
@@ -21,9 +22,15 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
 
         TeamOneButton = (Button) findViewById(R.id.team_1_button);
         TeamTwoButton = (Button) findViewById(R.id.team_2_button);
+        OtherPlayerButton = (Button) findViewById(R.id.button6);
 
         TeamOneButton.setOnClickListener(this);
         TeamTwoButton.setOnClickListener(this);
+        OtherPlayerButton.setOnClickListener(this);
+
+        Intent i = getIntent();
+        info = i.getStringExtra("ans");
+        System.out.println("Select string is: " + info);
     }
 
     public void onClick(View v){
@@ -32,17 +39,27 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         * "OpposingTeam:" for Opposing Team
         * "MyTeam:" For my team, but not my player
         */
-
-        if(v.getId() == R.id.team_1_button) {
-            info = "MyPlayer:";
-        } else if(v.getId() == R.id.team_2_button){
-            info = "OpposingTeam:";
-        } else if(v.getId() == R.id.button6){
-            info = "MyTeam:";
+        //System.out.println(info);
+        boolean isScore = info.equals("Score:");
+        if (v.getId() == R.id.team_1_button) {
+            info += "MyPlayer:";
+        } else if (v.getId() == R.id.team_2_button) {
+            info += "OpposingTeam:";
+        } else if (v.getId() == R.id.button6) {
+            info += "MyTeam:";
         }
-        Intent intent = new Intent(this, AddEventActivity.class);
-        intent.putExtra(Select_Team_Event, info);
-        startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+
+        //System.out.println("info currently is " + info);
+       // boolean isScore = info.equals("Score:");
+        if(isScore) {
+            Intent intent = new Intent(this, AddScoreActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+        }
     }
 
     public void onActivityResult(int activityCode, int resultCode, Intent intent){
