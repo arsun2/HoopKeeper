@@ -19,6 +19,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ArrayList<GameEvent> gameLog;
     private int ownScore = 0;
     private int opponentScore = 0;
+    private String info = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +42,37 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         //This is the stat string passed in
         Intent i = getIntent();
-        String statString = i.getStringExtra("ans");
-        System.out.println("Stat string is: " + statString);
+        info = i.getStringExtra("ans");
+        System.out.println("Main string is: " + info);
     }
 
-    public void onClick(View v){
-        //if(v.getId() == R.id.add_event_button){
+    public void onClick(View v) {
+        if (v.getId() == R.id.button) {
             Intent intent = new Intent(this, SelectTeamActivity.class);
+            info = "Score:";
+            intent.putExtra("ans", info);
             startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
-        //}
+        } else if (v.getId() == R.id.button2) {
+            info = "Miss:";
+            Intent intent = new Intent(this, SelectTeamActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
+        } else if (v.getId() == R.id.button3) {
+            info = "Rebound:";
+            Intent intent = new Intent(this, SelectTeamActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
+        } else if (v.getId() == R.id.button4) {
+            info = "Illegal:";
+            Intent intent = new Intent(this, SelectTeamActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
+        } else if (v.getId() == R.id.button5) {
+            info = "Other:";
+            Intent intent = new Intent(this, SelectTeamActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
+        }
     }
 
     public void onActivityResult(int activityCode, int resultCode, Intent intent) {
