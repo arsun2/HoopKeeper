@@ -11,6 +11,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static String Main_Activity_Event = "Main_Activity_Event";
     private static final int SELECT_TEAM_ACTIVITY_REQUEST = 1;
     private Button AddEventButton;
+    private Button PointButton;
+    private Button MissButton;
+    private Button ReboundButton;
+    private Button IllegalButton;
+    private Button OtherButton;
     private ArrayList<GameEvent> gameLog;
     private int ownScore = 0;
     private int opponentScore = 0;
@@ -20,9 +25,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AddEventButton = (Button) findViewById(R.id.add_event_button);
+        //AddEventButton = (Button) findViewById(R.id.add_event_button);
+        PointButton = (Button) findViewById(R.id.button);
+        MissButton = (Button) findViewById(R.id.button2);
+        ReboundButton = (Button) findViewById(R.id.button3);
+        IllegalButton = (Button) findViewById(R.id.button4);
+        OtherButton = (Button) findViewById(R.id.button5);
 
-        AddEventButton.setOnClickListener(this);
+        //AddEventButton.setOnClickListener(this);
+        PointButton.setOnClickListener(this);
+        MissButton.setOnClickListener(this);
+        ReboundButton.setOnClickListener(this);
+        IllegalButton.setOnClickListener(this);
+        OtherButton.setOnClickListener(this);
+
         //This is the stat string passed in
         Intent i = getIntent();
         String statString = i.getStringExtra("ans");
@@ -30,14 +46,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void onClick(View v){
-        if(v.getId() == R.id.add_event_button){
+        //if(v.getId() == R.id.add_event_button){
             Intent intent = new Intent(this, SelectTeamActivity.class);
             startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
-        }
+        //}
     }
 
     public void onActivityResult(int activityCode, int resultCode, Intent intent) {
-        System.out.println("hey there");
+        //System.out.println("hey there");
         if (activityCode == SELECT_TEAM_ACTIVITY_REQUEST){
             if(resultCode == RESULT_OK){
                 String returnStr = intent.getStringExtra(AddScoreActivity.ADD_SCORE_RETURN_STRING);
