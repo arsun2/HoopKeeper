@@ -10,8 +10,7 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
     private Button TeamOneButton;
     private Button TeamTwoButton;
     private Button OtherPlayerButton;
-    private static final int ADD_EVENT_ACTIVITY_REQUEST = 1;
-    public static String Select_Team_Event = "Select_Team_Event";
+    public static final int SELECT_SCORE_ACTIVITY_REQUEST = 1;
     public static String SELECT_TEAM_RETURN_STRING = "SELECT_TEAM_RETURN_STRING";
     private String info = null;
 
@@ -39,7 +38,6 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         * "OpposingTeam:" for Opposing Team
         * "MyTeam:" For my team, but not my player
         */
-        //System.out.println(info);
         boolean isScore = info.equals("Score:");
         if (v.getId() == R.id.team_1_button) {
             info += "MyPlayer:";
@@ -49,29 +47,29 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
             info += "MyTeam:";
         }
 
-        //System.out.println("info currently is " + info);
-       // boolean isScore = info.equals("Score:");
+        Intent intent;
         if(isScore) {
-            Intent intent = new Intent(this, AddScoreActivity.class);
+            intent = new Intent(this, SelectScoreActivity.class);
             intent.putExtra("ans", info);
-            startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+            startActivityForResult(intent, SELECT_SCORE_ACTIVITY_REQUEST);
         } else {
-            Intent intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, MainActivity.class);
             intent.putExtra("ans", info);
-            startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+            setResult(RESULT_OK, intent);
+            finish();
         }
     }
 
-    public void onActivityResult(int activityCode, int resultCode, Intent intent){
-        if(activityCode == ADD_EVENT_ACTIVITY_REQUEST){
+    public void onActivityResult(int activityCode, int resultCode, Intent intent) {
+        //System.out.println("hey there");
+        if (activityCode == SELECT_SCORE_ACTIVITY_REQUEST){
             if(resultCode == RESULT_OK){
-                String returnStr = intent.getStringExtra(AddEventActivity.ADD_EVENT_RETURN_STRING);
-                info = returnStr;
-                System.out.printf("Add Event return str %s\n", info);
+                String info = intent.getStringExtra("ans");
+//                System.out.printf("Select Score return str: %s\n", info);
+                intent.putExtra("ans", info);
+                setResult(RESULT_OK, intent);
+                finish();
             }
-            Intent returnIntent  = new Intent();
-            returnIntent.putExtra(SELECT_TEAM_RETURN_STRING, info);
-            setResult(RESULT_OK, returnIntent);
         }
     }
 }

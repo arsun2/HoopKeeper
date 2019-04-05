@@ -3,19 +3,32 @@ package com.example.cs498teamassign5;
 /**
  * this is the struct for game event
  * Point 1, 2, 3
- * team: team 1 or 2
  * and different attributes for other event
  * WARNING: need to update parseStrForInfo if new info is added
  */
+enum Player
+{
+    MyPlayer, OpposingTeam, MyTeam
+}
+
+enum Stat
+{
+    rebound, foul, block, assist
+}
+
+enum Point
+{
+    onePoint, twoPoint, threePoint
+}
+
 public class GameEvent {
-    int point = 0;
-    int team = 0;
-    int playerNumber = -1;
-    boolean rebound = false;
-    boolean foul = false;
-    boolean block = false;
-    boolean assist = false;
-    public GameEvent(String str){
+    int time;   //Placeholder for actual time
+    Player player;
+    Stat stat;
+    Boolean score = false;
+    Point point;
+    public GameEvent(String str, int time){
+        this.time = time;
         parseStrForInfo(str);
     }
 
@@ -29,45 +42,49 @@ public class GameEvent {
         String [] arr = str.split(":");
         for(String info : arr){
             switch(info){
-                case "Team1":
-                    this.team = 1;
+                case "MyPlayer":
+                    this.player = Player.MyPlayer;
                     break;
-                case "Team2":
-                    this.team = 2;
+                case "MyTeam":
+                    this.player = Player.MyTeam;
                     break;
-                case "foul":
-                    this.foul = true;
-                    break;
-                case "block":
-                    this.block = true;
+                case "OpposingTeam":
+                    this.player = Player.OpposingTeam;
                     break;
                 case "1Point":
-                    this.point = 1;
+                    this.score = true;
+                    this.point = Point.onePoint;
                     break;
                 case "2Point":
-                    this.point = 2;
+                    this.score = true;
+                    this.point = Point.twoPoint;
                     break;
                 case "3Point":
-                    this.point = 3;
+                    this.score = true;
+                    this.point = Point.threePoint;
+                    break;
+                case "foul":
+                    this.stat = Stat.foul;
+                    break;
+                case "block":
+                    this.stat = Stat.block;
                     break;
                 case "rebound":
-                    this.rebound = true;
+                    this.stat = Stat.rebound;
                     break;
                 case "assist":
-                    this.assist = true;
+                    this.stat = Stat.assist;
                     break;
                 default:
-                    parsePlayer(info);
             }
         }
     }
 
-    /**
-     *
-     * @param info, format "playerXX", XX is the digit of player
-     */
-    private void parsePlayer(String info){
-        String playerNumber = info.substring(6);
-        this.playerNumber = Integer.parseInt(playerNumber);
+    public Stat getStat(){
+        return this.stat;
+    }
+
+    public Player getPlayer(){
+        return this.player;
     }
 }
