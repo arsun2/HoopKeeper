@@ -39,7 +39,6 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         * "OpposingTeam:" for Opposing Team
         * "MyTeam:" For my team, but not my player
         */
-        //System.out.println(info);
         boolean isScore = info.equals("Score:");
         if (v.getId() == R.id.team_1_button) {
             info += "MyPlayer:";
@@ -49,29 +48,13 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
             info += "MyTeam:";
         }
 
-        //System.out.println("info currently is " + info);
-       // boolean isScore = info.equals("Score:");
+        Intent intent;
         if(isScore) {
-            Intent intent = new Intent(this, AddScoreActivity.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+            intent = new Intent(this, AddScoreActivity.class);
         } else {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, ADD_EVENT_ACTIVITY_REQUEST);
+            intent = new Intent(this, MainActivity.class);
         }
-    }
-
-    public void onActivityResult(int activityCode, int resultCode, Intent intent){
-        if(activityCode == ADD_EVENT_ACTIVITY_REQUEST){
-            if(resultCode == RESULT_OK){
-                String returnStr = intent.getStringExtra(AddEventActivity.ADD_EVENT_RETURN_STRING);
-                info = returnStr;
-                System.out.printf("Add Event return str %s\n", info);
-            }
-            Intent returnIntent  = new Intent();
-            returnIntent.putExtra(SELECT_TEAM_RETURN_STRING, info);
-            setResult(RESULT_OK, returnIntent);
-        }
+        intent.putExtra("ans", info);
+        startActivity(intent);
     }
 }
