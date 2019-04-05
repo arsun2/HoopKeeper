@@ -10,8 +10,7 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
     private Button TeamOneButton;
     private Button TeamTwoButton;
     private Button OtherPlayerButton;
-    private static final int ADD_EVENT_ACTIVITY_REQUEST = 1;
-    public static String Select_Team_Event = "Select_Team_Event";
+    public static final int SELECT_SCORE_ACTIVITY_REQUEST = 1;
     public static String SELECT_TEAM_RETURN_STRING = "SELECT_TEAM_RETURN_STRING";
     private String info = null;
 
@@ -50,11 +49,27 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
 
         Intent intent;
         if(isScore) {
-            intent = new Intent(this, AddScoreActivity.class);
+            intent = new Intent(this, SelectScoreActivity.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, SELECT_SCORE_ACTIVITY_REQUEST);
         } else {
             intent = new Intent(this, MainActivity.class);
+            intent.putExtra("ans", info);
+            setResult(RESULT_OK, intent);
+            finish();
         }
-        intent.putExtra("ans", info);
-        startActivity(intent);
+    }
+
+    public void onActivityResult(int activityCode, int resultCode, Intent intent) {
+        //System.out.println("hey there");
+        if (activityCode == SELECT_SCORE_ACTIVITY_REQUEST){
+            if(resultCode == RESULT_OK){
+                String info = intent.getStringExtra("ans");
+//                System.out.printf("Select Score return str: %s\n", info);
+                intent.putExtra("ans", info);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        }
     }
 }

@@ -5,20 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import java.util.ArrayList;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    public static String Main_Activity_Event = "Main_Activity_Event";
     private static final int SELECT_TEAM_ACTIVITY_REQUEST = 1;
-    private Button AddEventButton;
     private Button PointButton;
     private Button MissButton;
     private Button ReboundButton;
     private Button IllegalButton;
     private Button OtherButton;
-    private ArrayList<GameEvent> gameLog;
-    private int ownScore = 0;
-    private int opponentScore = 0;
+    private GameStatus gameStatus;
+    private int myTeamScore = 0;
+    private int opposingTeamScore = 0;
+    private int myPlayerScore = 0;
     private String info = null;
 
     @Override
@@ -26,14 +25,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //AddEventButton = (Button) findViewById(R.id.add_event_button);
-        PointButton = (Button) findViewById(R.id.button);
-        MissButton = (Button) findViewById(R.id.button2);
-        ReboundButton = (Button) findViewById(R.id.button3);
-        IllegalButton = (Button) findViewById(R.id.button4);
-        OtherButton = (Button) findViewById(R.id.button5);
+        //Todo: change constructor with team name
+        gameStatus = new GameStatus();
+        //set the initial score
+        updateScore();
 
-        //AddEventButton.setOnClickListener(this);
+        PointButton = (Button) findViewById(R.id.ScoreButton);
+        MissButton = (Button) findViewById(R.id.MissButton);
+        ReboundButton = (Button) findViewById(R.id.ReboundButton);
+        IllegalButton = (Button) findViewById(R.id.IllegalButton);
+        OtherButton = (Button) findViewById(R.id.OtherButton);
+
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
         ReboundButton.setOnClickListener(this);
@@ -46,53 +48,58 @@ public class MainActivity extends Activity implements View.OnClickListener {
         System.out.println("Main string is: " + info);
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        updateScore();
+    }
+
     public void onClick(View v) {
-        if (v.getId() == R.id.button) {
-            Intent intent = new Intent(this, SelectTeamActivity.class);
+        if (v.getId() == R.id.ScoreButton) {
             info = "Score:";
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
-        } else if (v.getId() == R.id.button2) {
+        } else if (v.getId() == R.id.MissButton) {
             info = "Miss:";
-            Intent intent = new Intent(this, SelectTeamActivity.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
-        } else if (v.getId() == R.id.button3) {
+        } else if (v.getId() == R.id.ReboundButton) {
             info = "Rebound:";
-            Intent intent = new Intent(this, SelectTeamActivity.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
-        } else if (v.getId() == R.id.button4) {
+        } else if (v.getId() == R.id.IllegalButton) {
             info = "Illegal:";
-            Intent intent = new Intent(this, SelectTeamActivity.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
-        } else if (v.getId() == R.id.button5) {
+        } else if (v.getId() == R.id.OtherButton) {
             info = "Other:";
-            Intent intent = new Intent(this, SelectTeamActivity.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
         }
+        Intent intent = new Intent(this, SelectTeamActivity.class);
+        intent.putExtra("ans", info);
+        startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
     }
 
     public void onActivityResult(int activityCode, int resultCode, Intent intent) {
         //System.out.println("hey there");
         if (activityCode == SELECT_TEAM_ACTIVITY_REQUEST){
             if(resultCode == RESULT_OK){
-                String returnStr = intent.getStringExtra(AddScoreActivity.ADD_SCORE_RETURN_STRING);
-                System.out.printf("Select Team return str: %s\n", returnStr);
+                String info = intent.getStringExtra("ans");
+                System.out.printf("Select Team return str: %s\n", info);
+                gameStatus.addGameEvent(info);
             }
         }
-        /*
-        if(activityCode == ADD_SCORE_ACTIVITY_REQUEST){
-            if(resultCode == RESULT_OK){
-                String s = intent.getStringExtra(AddScoreActivity.ADD_SCORE_RETURN_STRING);
-                info = info + s;
-                System.out.printf("Add Score return str: %s\n", s);
-            }
-            Intent returnIntent  = new Intent();
-            returnIntent.putExtra(ADD_EVENT_RETURN_STRING, info);
-            setResult(RESULT_OK, returnIntent);
-        }*/
+    }
+
+    public void updateScore(){
+        myTeamScore = gameStatus.myTeamScore();
+        TextView myTeamScoreView = (TextView) findViewById(R.id.myTeamScore);
+        myTeamScoreView.setText(Integer.toString(myTeamScore));
+
+        opposingTeamScore = gameStatus.opposingTeamScore();
+        TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
+        opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
+
+        myPlayerScore = gameStatus.myPlayerScore();
+
+//        String[] textArray = {"One", "Two", "Three", "Four"};
+//        RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.activity_main);
+//        for( int i = 0; i < textArray.length; i++ )
+//        {
+//            Button textView = new Button(this);
+//            textView.setText(textArray[i]);
+//            linearLayout.addView(textView);
+//        }
     }
 }

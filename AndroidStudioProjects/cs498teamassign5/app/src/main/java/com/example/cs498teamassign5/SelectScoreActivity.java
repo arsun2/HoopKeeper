@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AddScoreActivity extends Activity implements View.OnClickListener {
+public class SelectScoreActivity extends Activity implements View.OnClickListener {
     private Button OnePointButton;
     private Button TwoPointButton;
     private Button ThreePointButton;
@@ -46,6 +46,6 @@ public class AddScoreActivity extends Activity implements View.OnClickListener {
         }
         intent.putExtra("ans", info);
         setResult(RESULT_OK, intent);
-        startActivity(intent);
+        finish();
     }
 }
