@@ -9,6 +9,6 @@
     <string name="block">Block</string>
     <string name="rebound">Rebound</string>
     <string name="illegal">Illegal</string>
-    <string name="other">Other</string>
+    <string name="turnover">Turnover</string>
     <string name="miss">Miss</string>
 </resources>

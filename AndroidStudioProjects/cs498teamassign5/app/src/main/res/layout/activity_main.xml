@@ -150,7 +150,7 @@
         android:layout_below="@+id/IllegalButton"
         android:background="#00FFFF"
         android:layout_marginTop="22dp"
-        android:text="@string/other" />
+        android:text="@string/turnover" />
 
     <!--
 
