@@ -3,21 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_main"
+    android:paddingTop="5dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
     <TextView
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:id="@+id/quarterNumber"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:gravity="center_horizontal"
         android:textSize="18dp"
-        android:textColor="#000000"
-        android:text="Q1" />
+        android:textColor="#000000" />
+
+    <ImageButton
+        android:id="@+id/PrevGameButton"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:tint="@android:color/darker_gray"
+        android:layout_toLeftOf="@id/quarterNumber"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/leftarrow" />
+
+    <ImageButton
+        android:id="@+id/NextGameButton"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:tint="@android:color/darker_gray"
+        android:layout_toRightOf="@id/quarterNumber"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/rightarrow" />
 
     <TextView
         android:id="@+id/myTeamName"
@@ -25,10 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/quarterNumber"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
         android:textSize="18dp"
         android:textColor="#000000"
         android:text="My Team" />

@@ -1,11 +1,14 @@
 package com.example.cs498teamassign5;
 
+import java.io.Serializable;
+
 /**
  * this is the struct for game event
  * Point 1, 2, 3
  * and different attributes for other event
  * WARNING: need to update parseStrForInfo if new info is added
  */
+
 enum Player
 {
     MyPlayer, OpposingTeam, MyTeam
@@ -21,7 +24,7 @@ enum Point
     onePoint, twoPoint, threePoint
 }
 
-public class GameEvent {
+public class GameEvent implements Serializable {
     int time;   //Placeholder for actual time
     Player player;
     Stat stat;

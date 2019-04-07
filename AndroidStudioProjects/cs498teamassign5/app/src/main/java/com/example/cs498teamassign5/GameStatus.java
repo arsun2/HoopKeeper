@@ -1,12 +1,15 @@
 package com.example.cs498teamassign5;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GameStatus {
+/**
+ * this is the Game Log for each quarter, separate by team
+ */
+
+public class GameStatus implements Serializable {
     private ArrayList<GameEvent> myTeamGameLog;
     private ArrayList<GameEvent> opposingTeamGameLog;
-    private String myTeamName = "";
-    private String opposingTeamName = "";
     private int time;
 
     //Todo: change constructor with team name
