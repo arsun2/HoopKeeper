@@ -3,9 +3,13 @@ package com.example.cs498teamassign5;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private static final int SELECT_TEAM_ACTIVITY_REQUEST = 1;
@@ -19,6 +23,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int opposingTeamScore = 0;
     private int myPlayerScore = 0;
     private String info = null;
+    private RecyclerView myTeamRecyclerView;
+    private RecyclerView opposingTeamRecyclerView;
+    private RecyclerView.Adapter myTeamAdapter;
+    private RecyclerView.Adapter opposingTeamAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layoutManager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +37,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         //Todo: change constructor with team name
         gameStatus = new GameStatus();
-        //set the initial score
-        updateScore();
+
+        //Adapters Initialization
+        initializeRecyclerView();
 
         PointButton = (Button) findViewById(R.id.ScoreButton);
         MissButton = (Button) findViewById(R.id.MissButton);
         ReboundButton = (Button) findViewById(R.id.ReboundButton);
         IllegalButton = (Button) findViewById(R.id.IllegalButton);
-        OtherButton = (Button) findViewById(R.id.OtherButton);
+        OtherButton = (Button) findViewById(R.id.TurnoverButton);
 
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
@@ -51,20 +62,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onResume(){
         super.onResume();
-        updateScore();
+        updateScoreAndStat();
     }
 
     public void onClick(View v) {
         if (v.getId() == R.id.ScoreButton) {
             info = "Score:";
         } else if (v.getId() == R.id.MissButton) {
+            //Todo Add suppor for miss
             info = "Miss:";
         } else if (v.getId() == R.id.ReboundButton) {
             info = "Rebound:";
         } else if (v.getId() == R.id.IllegalButton) {
             info = "Illegal:";
-        } else if (v.getId() == R.id.OtherButton) {
-            info = "Other:";
+        } else if (v.getId() == R.id.TurnoverButton) {
+            info = "Turnover:";
         }
         Intent intent = new Intent(this, SelectTeamActivity.class);
         intent.putExtra("ans", info);
@@ -82,7 +94,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    public void updateScore(){
+    public void updateScoreAndStat(){
         myTeamScore = gameStatus.myTeamScore();
         TextView myTeamScoreView = (TextView) findViewById(R.id.myTeamScore);
         myTeamScoreView.setText(Integer.toString(myTeamScore));
@@ -93,13 +105,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         myPlayerScore = gameStatus.myPlayerScore();
 
-//        String[] textArray = {"One", "Two", "Three", "Four"};
-//        RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.activity_main);
-//        for( int i = 0; i < textArray.length; i++ )
-//        {
-//            Button textView = new Button(this);
-//            textView.setText(textArray[i]);
-//            linearLayout.addView(textView);
-//        }
+        myTeamAdapter.notifyDataSetChanged();
+        opposingTeamAdapter.notifyDataSetChanged();
+    }
+
+    public void initializeRecyclerView(){
+        myTeamRecyclerView = (RecyclerView) findViewById(R.id.myTeam_recycler_view);
+        opposingTeamRecyclerView = (RecyclerView) findViewById(R.id.opposingTeam_recycler_view);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        myTeamRecyclerView.setHasFixedSize(true);
+        opposingTeamRecyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        myTeamRecyclerView.setLayoutManager(layoutManager);
+        layoutManager2 = new LinearLayoutManager(this);
+        opposingTeamRecyclerView.setLayoutManager(layoutManager2);
+
+        ArrayList<GameEvent> myTeamGameLog = gameStatus.getMyTeamGameLog();
+        ArrayList<GameEvent> opposingTeamGameLog = gameStatus.getOpposingTeamGameLog();
+
+        // specify an adapter (see also next example)
+        myTeamAdapter = new MyAdapter(myTeamGameLog);
+        myTeamRecyclerView.setAdapter(myTeamAdapter);
+        opposingTeamAdapter = new MyAdapter(opposingTeamGameLog);
+        opposingTeamRecyclerView.setAdapter(opposingTeamAdapter);
     }
 }

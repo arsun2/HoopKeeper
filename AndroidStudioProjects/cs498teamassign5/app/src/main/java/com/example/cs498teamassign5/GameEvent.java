@@ -13,7 +13,7 @@ enum Player
 
 enum Stat
 {
-    rebound, foul, block, assist
+    rebound, foul, block, assist, illegal, turnover
 }
 
 enum Point
@@ -26,6 +26,7 @@ public class GameEvent {
     Player player;
     Stat stat;
     Boolean score = false;
+    Boolean miss = false;
     Point point;
     public GameEvent(String str, int time){
         this.time = time;
@@ -51,16 +52,19 @@ public class GameEvent {
                 case "OpposingTeam":
                     this.player = Player.OpposingTeam;
                     break;
-                case "1Point":
+                case "Miss":
+                    this.miss = true;
+                    break;
+                case "Score":
                     this.score = true;
+                    break;
+                case "1Point":
                     this.point = Point.onePoint;
                     break;
                 case "2Point":
-                    this.score = true;
                     this.point = Point.twoPoint;
                     break;
                 case "3Point":
-                    this.score = true;
                     this.point = Point.threePoint;
                     break;
                 case "foul":
@@ -69,11 +73,17 @@ public class GameEvent {
                 case "block":
                     this.stat = Stat.block;
                     break;
-                case "rebound":
+                case "Rebound":
                     this.stat = Stat.rebound;
                     break;
                 case "assist":
                     this.stat = Stat.assist;
+                    break;
+                case "Illegal":
+                    this.stat = Stat.illegal;
+                    break;
+                case "Turnover":
+                    this.stat = Stat.turnover;
                     break;
                 default:
             }
