@@ -1,13 +1,16 @@
 package com.example.cs498teamassign5;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,7 +21,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button ReboundButton;
     private Button IllegalButton;
     private Button OtherButton;
-    private GameStatus gameStatus;
+    private ImageButton PrevGameButton;
+    private ImageButton NextGameButton;
+    private QuarterlyGameLog quarterlyGameLog;
     private int myTeamScore = 0;
     private int opposingTeamScore = 0;
     private int myPlayerScore = 0;
@@ -29,16 +34,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private RecyclerView.Adapter opposingTeamAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.LayoutManager layoutManager2;
+    private int quarterNumber = 0;
+    private GameInfo gameInfo;
+    private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Todo: change constructor with team name
-        gameStatus = new GameStatus();
+        Intent intent = getIntent();
+        gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
+        quarterlyGameLog = gameInfo.get(quarterNumber);
 
         //Adapters Initialization
+        initializeQuarter();
         initializeRecyclerView();
 
         PointButton = (Button) findViewById(R.id.ScoreButton);
@@ -46,17 +56,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ReboundButton = (Button) findViewById(R.id.ReboundButton);
         IllegalButton = (Button) findViewById(R.id.IllegalButton);
         OtherButton = (Button) findViewById(R.id.TurnoverButton);
+        PrevGameButton = (ImageButton) findViewById(R.id.PrevGameButton);
+        NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
 
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
         ReboundButton.setOnClickListener(this);
         IllegalButton.setOnClickListener(this);
         OtherButton.setOnClickListener(this);
+        PrevGameButton.setOnClickListener(this);
+        NextGameButton.setOnClickListener(this);
 
-        //This is the stat string passed in
-        Intent i = getIntent();
-        info = i.getStringExtra("ans");
-        System.out.println("Main string is: " + info);
     }
 
     @Override
@@ -66,17 +76,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void onClick(View v) {
-        if (v.getId() == R.id.ScoreButton) {
+        int ClickId = v.getId();
+        if (ClickId == R.id.ScoreButton) {
             info = "Score:";
-        } else if (v.getId() == R.id.MissButton) {
-            //Todo Add suppor for miss
+        } else if (ClickId == R.id.MissButton) {
             info = "Miss:";
-        } else if (v.getId() == R.id.ReboundButton) {
+        } else if (ClickId == R.id.ReboundButton) {
             info = "Rebound:";
-        } else if (v.getId() == R.id.IllegalButton) {
+        } else if (ClickId == R.id.IllegalButton) {
             info = "Illegal:";
-        } else if (v.getId() == R.id.TurnoverButton) {
+        } else if (ClickId == R.id.TurnoverButton) {
             info = "Turnover:";
+        } else if (ClickId == R.id.NextGameButton){
+            switchQuarterHelper(true);
+            return;
+        } else {
+            switchQuarterHelper(false);
+            return;
         }
         Intent intent = new Intent(this, SelectTeamActivity.class);
         intent.putExtra("ans", info);
@@ -89,21 +105,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if(resultCode == RESULT_OK){
                 String info = intent.getStringExtra("ans");
                 System.out.printf("Select Team return str: %s\n", info);
-                gameStatus.addGameEvent(info);
+                if(info != null){
+                    quarterlyGameLog.addGameEvent(info);
+                }
             }
         }
     }
 
     public void updateScoreAndStat(){
-        myTeamScore = gameStatus.myTeamScore();
+        myTeamScore = quarterlyGameLog.myTeamScore();
         TextView myTeamScoreView = (TextView) findViewById(R.id.myTeamScore);
         myTeamScoreView.setText(Integer.toString(myTeamScore));
 
-        opposingTeamScore = gameStatus.opposingTeamScore();
+        opposingTeamScore = quarterlyGameLog.opposingTeamScore();
         TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
         opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
 
-        myPlayerScore = gameStatus.myPlayerScore();
+        myPlayerScore = quarterlyGameLog.myPlayerScore();
 
         myTeamAdapter.notifyDataSetChanged();
         opposingTeamAdapter.notifyDataSetChanged();
@@ -122,13 +140,45 @@ public class MainActivity extends Activity implements View.OnClickListener {
         layoutManager2 = new LinearLayoutManager(this);
         opposingTeamRecyclerView.setLayoutManager(layoutManager2);
 
-        ArrayList<GameEvent> myTeamGameLog = gameStatus.getMyTeamGameLog();
-        ArrayList<GameEvent> opposingTeamGameLog = gameStatus.getOpposingTeamGameLog();
+        ArrayList<GameEvent> myTeamGameLog = quarterlyGameLog.getMyTeamGameLog();
+        ArrayList<GameEvent> opposingTeamGameLog = quarterlyGameLog.getOpposingTeamGameLog();
 
         // specify an adapter (see also next example)
         myTeamAdapter = new MyAdapter(myTeamGameLog);
         myTeamRecyclerView.setAdapter(myTeamAdapter);
         opposingTeamAdapter = new MyAdapter(opposingTeamGameLog);
         opposingTeamRecyclerView.setAdapter(opposingTeamAdapter);
+    }
+
+    public void initializeQuarter(){
+        String quarter = quarterString[quarterNumber];
+        TextView quarterName = (TextView) findViewById(R.id.quarterNumber);
+        quarterName.setText(quarter);
+    }
+
+    public void switchQuarterHelper(boolean nextGame){
+        //quarterNumber is zero-indexed!!
+        if((quarterNumber == 3 && nextGame) || (quarterNumber == 0 && !nextGame)){
+            Context context = getApplicationContext();
+            CharSequence text;
+            if(nextGame){
+                text = "Last Quarter!";
+            } else {
+                text = "First Quarter!";
+            }
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } else {
+            if(nextGame){
+                quarterNumber++;
+            } else {
+                quarterNumber--;
+            }
+            quarterlyGameLog = gameInfo.get(quarterNumber);
+            initializeQuarter();
+            updateScoreAndStat();
+            initializeRecyclerView();
+        }
     }
 }
