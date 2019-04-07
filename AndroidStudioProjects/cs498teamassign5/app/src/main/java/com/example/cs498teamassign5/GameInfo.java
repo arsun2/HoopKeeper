@@ -8,24 +8,27 @@ import java.util.Calendar;
  * This is the structure for an entire game
  */
 public class GameInfo implements Serializable {
-    ArrayList<GameStatus> gameStatuses;
+    ArrayList<QuarterlyGameLog> quarterlyGameLogs;
     Calendar calendar;
     public GameInfo(){
         this.calendar = Calendar.getInstance();
-        this.gameStatuses = new ArrayList<>(0);
+        this.quarterlyGameLogs = new ArrayList<>();
     }
 
-    public void set(int index, GameStatus gameStatus){
-        if(index == gameStatuses.size()){
-            gameStatuses.add(gameStatus);
+    public void set(int index, QuarterlyGameLog quarterlyGameLog){
+        if(index == quarterlyGameLogs.size()){
+            quarterlyGameLogs.add(quarterlyGameLog);
         } else {
-            gameStatuses.set(index, gameStatus);
+            quarterlyGameLogs.set(index, quarterlyGameLog);
         }
     }
 
-    public GameStatus get(int index){
-        System.out.printf("GameStatus get %d, size(): %d\n", index, gameStatuses.size());
-        if(gameStatuses.size() >= index) return null;
-        else return gameStatuses.get(index);
+    public QuarterlyGameLog get(int index){
+        System.out.printf("QuarterlyGameLog get %d, size(): %d\n", index, quarterlyGameLogs.size());
+        if(quarterlyGameLogs.size() <= index){
+            System.out.printf("test test\n");
+            quarterlyGameLogs.add(new QuarterlyGameLog());
+        }
+        return quarterlyGameLogs.get(index);
     }
 }

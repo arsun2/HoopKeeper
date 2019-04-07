@@ -23,7 +23,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button OtherButton;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
-    private GameStatus gameStatus;
+    private QuarterlyGameLog quarterlyGameLog;
     private int myTeamScore = 0;
     private int opposingTeamScore = 0;
     private int myPlayerScore = 0;
@@ -34,12 +34,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private RecyclerView.Adapter opposingTeamAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.LayoutManager layoutManager2;
+    private int quarterNumber = 0;
+    private GameInfo gameInfo;
     private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
+        quarterlyGameLog = gameInfo.get(quarterNumber);
 
         //Adapters Initialization
         initializeQuarter();
@@ -61,10 +67,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PrevGameButton.setOnClickListener(this);
         NextGameButton.setOnClickListener(this);
 
-        //This is the stat string passed in
-        Intent intent = getIntent();
-        info = intent.getStringExtra("ans");
-        if(info != null) System.out.println("Main string is: " + info);
     }
 
     @Override
@@ -78,7 +80,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (ClickId == R.id.ScoreButton) {
             info = "Score:";
         } else if (ClickId == R.id.MissButton) {
-            //Todo Add suppor for miss
             info = "Miss:";
         } else if (ClickId == R.id.ReboundButton) {
             info = "Rebound:";
@@ -105,22 +106,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 String info = intent.getStringExtra("ans");
                 System.out.printf("Select Team return str: %s\n", info);
                 if(info != null){
-                    gameStatus.addGameEvent(info);
+                    quarterlyGameLog.addGameEvent(info);
                 }
             }
         }
     }
 
     public void updateScoreAndStat(){
-        myTeamScore = gameStatus.myTeamScore();
+        myTeamScore = quarterlyGameLog.myTeamScore();
         TextView myTeamScoreView = (TextView) findViewById(R.id.myTeamScore);
         myTeamScoreView.setText(Integer.toString(myTeamScore));
 
-        opposingTeamScore = gameStatus.opposingTeamScore();
+        opposingTeamScore = quarterlyGameLog.opposingTeamScore();
         TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
         opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
 
-        myPlayerScore = gameStatus.myPlayerScore();
+        myPlayerScore = quarterlyGameLog.myPlayerScore();
 
         myTeamAdapter.notifyDataSetChanged();
         opposingTeamAdapter.notifyDataSetChanged();
@@ -139,8 +140,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         layoutManager2 = new LinearLayoutManager(this);
         opposingTeamRecyclerView.setLayoutManager(layoutManager2);
 
-        ArrayList<GameEvent> myTeamGameLog = gameStatus.getMyTeamGameLog();
-        ArrayList<GameEvent> opposingTeamGameLog = gameStatus.getOpposingTeamGameLog();
+        ArrayList<GameEvent> myTeamGameLog = quarterlyGameLog.getMyTeamGameLog();
+        ArrayList<GameEvent> opposingTeamGameLog = quarterlyGameLog.getOpposingTeamGameLog();
 
         // specify an adapter (see also next example)
         myTeamAdapter = new MyAdapter(myTeamGameLog);
@@ -150,25 +151,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void initializeQuarter(){
-        Intent intent = getIntent();
-        int quarterNumber = intent.getIntExtra("quarter", 0);
         String quarter = quarterString[quarterNumber];
         TextView quarterName = (TextView) findViewById(R.id.quarterNumber);
         quarterName.setText(quarter);
-
-        GameInfo gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
-        gameStatus = gameInfo.get(quarterNumber);
-        if(gameStatus == null){
-            System.out.print("gameStatus is null\n");
-            gameStatus = new GameStatus();
-        } else {
-            updateScoreAndStat();
-        }
     }
 
     public void switchQuarterHelper(boolean nextGame){
-        Intent intent = getIntent();
-        int quarterNumber = intent.getIntExtra("quarter", 0);
         //quarterNumber is zero-indexed!!
         if((quarterNumber == 3 && nextGame) || (quarterNumber == 0 && !nextGame)){
             Context context = getApplicationContext();
@@ -182,19 +170,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         } else {
-            Intent nextIntent = new Intent(this, MainActivity.class);
-            GameInfo gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
-            gameInfo.set(quarterNumber, gameStatus);
             if(nextGame){
                 quarterNumber++;
             } else {
-//                quarterNumber--;
-                finish();
-                return;
+                quarterNumber--;
             }
-            nextIntent.putExtra("quarter", quarterNumber);
-            nextIntent.putExtra("gameInfo", gameInfo);
-            startActivity(nextIntent);
+            quarterlyGameLog = gameInfo.get(quarterNumber);
+            initializeQuarter();
+            updateScoreAndStat();
+            initializeRecyclerView();
         }
     }
 }

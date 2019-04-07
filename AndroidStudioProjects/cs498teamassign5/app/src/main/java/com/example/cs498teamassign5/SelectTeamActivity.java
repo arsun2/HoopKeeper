@@ -38,7 +38,7 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         * "OpposingTeam:" for Opposing Team
         * "MyTeam:" For my team, but not my player
         */
-        boolean isScore = info.equals("Score:");
+        boolean needScore = info.equals("Score:") || info.equals("Miss:");
         if (v.getId() == R.id.team_1_button) {
             info += "MyPlayer:";
         } else if (v.getId() == R.id.team_2_button) {
@@ -48,7 +48,7 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         }
 
         Intent intent;
-        if(isScore) {
+        if(needScore) {
             intent = new Intent(this, SelectScoreActivity.class);
             intent.putExtra("ans", info);
             startActivityForResult(intent, SELECT_SCORE_ACTIVITY_REQUEST);

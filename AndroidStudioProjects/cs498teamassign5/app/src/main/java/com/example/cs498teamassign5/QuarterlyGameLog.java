@@ -7,13 +7,13 @@ import java.util.ArrayList;
  * this is the Game Log for each quarter, separate by team
  */
 
-public class GameStatus implements Serializable {
+public class QuarterlyGameLog implements Serializable {
     private ArrayList<GameEvent> myTeamGameLog;
     private ArrayList<GameEvent> opposingTeamGameLog;
     private int time;
 
     //Todo: change constructor with team name
-    public GameStatus(){
+    public QuarterlyGameLog(){
         this.myTeamGameLog = new ArrayList<GameEvent>();
         this.opposingTeamGameLog = new ArrayList<GameEvent>();
         this.time = 0;
