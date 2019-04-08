@@ -88,14 +88,14 @@
         android:text="Turnovers:" />
 
     <TextView
-        android:id="@+id/PlauyerPoints"
+        android:id="@+id/PlayerPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ScoreButton"
         android:layout_toEndOf="@+id/ReboundButton"
         android:layout_toRightOf="@+id/ReboundButton"
-        android:textSize="26dp"
-        android:text="@string/zero" />
+        android:text="@string/zero"
+        android:textSize="26dp" />
 
     <TextView
         android:id="@+id/PlayerRebounds"
@@ -111,7 +111,8 @@
         android:id="@+id/PlayerFouls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_alignBaseline="@+id/IllegalButton"
+        android:layout_alignBottom="@+id/IllegalButton"
         android:layout_toEndOf="@+id/IllegalButton"
         android:layout_toRightOf="@+id/IllegalButton"
         android:text="@string/zero"
