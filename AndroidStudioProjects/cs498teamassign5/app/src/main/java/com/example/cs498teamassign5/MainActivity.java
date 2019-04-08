@@ -21,6 +21,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button ReboundButton;
     private Button IllegalButton;
     private Button OtherButton;
+    private Button PlayerStatButton;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
     private QuarterlyGameLog quarterlyGameLog;
@@ -58,6 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         OtherButton = (Button) findViewById(R.id.TurnoverButton);
         PrevGameButton = (ImageButton) findViewById(R.id.PrevGameButton);
         NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
+        PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
 
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
@@ -66,6 +68,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         OtherButton.setOnClickListener(this);
         PrevGameButton.setOnClickListener(this);
         NextGameButton.setOnClickListener(this);
+        PlayerStatButton.setOnClickListener(this);
+
 
     }
 
@@ -89,6 +93,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             info = "Turnover:";
         } else if (ClickId == R.id.NextGameButton){
             switchQuarterHelper(true);
+            return;
+        } else if (ClickId == R.id.PlayerButton){
+            Intent intent = new Intent(this, PlayerStat.class);
+            intent.putExtra("ans", info);
+            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
             return;
         } else {
             switchQuarterHelper(false);
