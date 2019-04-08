@@ -151,6 +151,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         ArrayList<GameEvent> myTeamGameLog = quarterlyGameLog.getMyTeamGameLog();
         ArrayList<GameEvent> opposingTeamGameLog = quarterlyGameLog.getOpposingTeamGameLog();
+        
+        //to update
+        /*
+        myPlayerScore = 0;
+        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
+        playerPoints.setText(Integer.toString(myPlayerScore));
+        myPlayerRebound = 0;
+        
+        TextView playerRebs = (TextView) findViewById(R.id.PlayerRebounds);
+        playerRebs.setText(Integer.toString(myPlayerRebound));
+        
+        myPlayerFoul = 0;
+        TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
+        playerRebs.setText(Integer.toString(myPlayerFoul));
+        
+        myPlayerTurnover = 0;
+        TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
+        playerRebs.setText(Integer.toString(myPlayerTurnover));*/
 
         // specify an adapter (see also next example)
         myTeamAdapter = new MyAdapter(myTeamGameLog);
