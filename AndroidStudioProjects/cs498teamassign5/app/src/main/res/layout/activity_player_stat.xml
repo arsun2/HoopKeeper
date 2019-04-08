@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_main"
+    android:paddingTop="5dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/quarterNumber"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:textSize="18dp"
+        android:textColor="#000000" />
+
+
+    <TextView
+        android:id="@+id/myTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quarterNumber"
+        android:layout_centerHorizontal="true"
+        android:text="My Player"
+        android:textColor="#000000"
+        android:textSize="36dp" />
+
+
+    <View
+        android:layout_width="340dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/myTeamScore"
+        android:layout_centerHorizontal="true"
+        android:background="#816D6C6C"
+        android:id="@+id/horizontal_bar"/>
+
+
+    <TextView
+        android:id="@+id/ScoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/quarterNumber"
+        android:layout_alignRight="@+id/quarterNumber"
+        android:layout_below="@+id/myTeamName"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="38dp"
+        android:textSize="26dp"
+        android:text="Points:" />
+
+
+
+    <TextView
+        android:id="@+id/ReboundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ScoreButton"
+        android:layout_alignRight="@+id/ScoreButton"
+        android:layout_below="@+id/ScoreButton"
+        android:layout_marginTop="25dp"
+        android:text="Rebounds:"
+        android:textSize="26dp" />
+
+
+    <TextView
+        android:id="@+id/IllegalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ReboundButton"
+        android:layout_alignRight="@+id/ReboundButton"
+        android:layout_below="@+id/ReboundButton"
+        android:layout_marginTop="24dp"
+        android:text="Fouls:"
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/TurnoverButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/IllegalButton"
+        android:layout_alignRight="@+id/IllegalButton"
+        android:layout_below="@+id/IllegalButton"
+        android:layout_marginTop="20dp"
+        android:textSize="26dp"
+        android:text="Turnovers:" />
+
+
+
+
+</RelativeLayout>
+

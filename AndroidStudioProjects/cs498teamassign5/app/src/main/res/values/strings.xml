@@ -15,5 +15,7 @@
     <string name="turnover">Turnover</string>
     <string name="miss">Miss</string>
     <string name="zero">0</string>
+    <string name="PlayerStats">My Player Stats</string>
+    <string name="title_activity_player_stat">PlayerStat</string>
 
 </resources>
