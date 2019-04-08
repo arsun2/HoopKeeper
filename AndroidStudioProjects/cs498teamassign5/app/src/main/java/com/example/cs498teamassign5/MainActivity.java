@@ -70,7 +70,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -130,10 +129,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
         opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
 
-        myPlayerScore = quarterlyGameLog.myPlayerScore();
-
         myTeamAdapter.notifyDataSetChanged();
         opposingTeamAdapter.notifyDataSetChanged();
+
+        myPlayerScore = gameInfo.myPlayerScore();
+        System.out.printf("myPlayerScore %d\n", myPlayerScore);
     }
 
     public void initializeRecyclerView(){
