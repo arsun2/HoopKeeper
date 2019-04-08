@@ -19,23 +19,25 @@
 
     <ImageButton
         android:id="@+id/PrevGameButton"
-        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="15dp"
-        android:tint="@android:color/darker_gray"
-        android:layout_toLeftOf="@id/quarterNumber"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/leftarrow" />
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/ScoreButton"
+        android:layout_toStartOf="@+id/ScoreButton"
+        android:background="@android:color/transparent"
+        android:src="@drawable/leftarrow"
+        android:tint="@android:color/darker_gray" />
 
     <ImageButton
         android:id="@+id/NextGameButton"
-        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="15dp"
-        android:tint="@android:color/darker_gray"
-        android:layout_toRightOf="@id/quarterNumber"
-        android:layout_marginLeft="5dp"
-        android:src="@drawable/rightarrow" />
+        android:layout_alignLeft="@+id/opposingTeam_recycler_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/opposingTeam_recycler_view"
+        android:background="@android:color/transparent"
+        android:src="@drawable/rightarrow"
+        android:tint="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/myTeamName"
@@ -54,15 +56,14 @@
         android:id="@+id/opposingTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myTeamName"
-        android:layout_alignBottom="@+id/myTeamName"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:textSize="18dp"
+        android:layout_below="@+id/quarterNumber"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/quarterNumber"
+        android:layout_toRightOf="@+id/quarterNumber"
+        android:text="Opposing Team"
         android:textColor="#000000"
-        android:text="Opposing Team" />
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/myTeamScore"
@@ -119,7 +120,7 @@
         android:layout_alignStart="@+id/ScoreButton"
         android:layout_below="@+id/ScoreButton"
         android:background="#FF0000"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="18dp"
         android:text="@string/miss" />
 
     <Button
@@ -130,7 +131,7 @@
         android:layout_alignStart="@+id/MissButton"
         android:layout_below="@+id/MissButton"
         android:background="#00FFFF"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="18dp"
         android:text="@string/rebound" />
 
     <!--this is the left vertical grey bar-->
@@ -162,7 +163,7 @@
         android:layout_alignStart="@+id/ReboundButton"
         android:layout_below="@+id/ReboundButton"
         android:background="#00FFFF"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="18dp"
         android:text="@string/illegal" />
 
     <Button
@@ -173,8 +174,18 @@
         android:layout_alignStart="@+id/IllegalButton"
         android:layout_below="@+id/IllegalButton"
         android:background="#00FFFF"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="18dp"
         android:text="@string/turnover" />
+
+    <Button
+        android:id="@+id/PlayerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TurnoverButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:background="#1E90FF	"
+        android:text="@string/PlayerStats" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/myTeam_recycler_view"
