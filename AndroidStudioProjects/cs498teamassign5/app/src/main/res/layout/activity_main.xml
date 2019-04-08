@@ -164,7 +164,7 @@
         android:layout_below="@+id/ReboundButton"
         android:background="#00FFFF"
         android:layout_marginTop="18dp"
-        android:text="@string/illegal" />
+        android:text="@string/foul" />
 
     <Button
         android:id="@+id/TurnoverButton"

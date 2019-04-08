@@ -87,7 +87,45 @@
         android:textSize="26dp"
         android:text="Turnovers:" />
 
+    <TextView
+        android:id="@+id/PlauyerPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ScoreButton"
+        android:layout_toEndOf="@+id/ReboundButton"
+        android:layout_toRightOf="@+id/ReboundButton"
+        android:textSize="26dp"
+        android:text="@string/zero" />
 
+    <TextView
+        android:id="@+id/PlayerRebounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/IllegalButton"
+        android:layout_toEndOf="@+id/ReboundButton"
+        android:layout_toRightOf="@+id/ReboundButton"
+        android:textSize="26dp"
+        android:text="@string/zero" />
+
+    <TextView
+        android:id="@+id/PlayerFouls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/IllegalButton"
+        android:layout_toRightOf="@+id/IllegalButton"
+        android:textSize="26dp"
+        android:text="@string/zero" />
+
+    <TextView
+        android:id="@+id/PlayerTurnovers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TurnoverButton"
+        android:layout_toEndOf="@+id/TurnoverButton"
+        android:layout_toRightOf="@+id/TurnoverButton"
+        android:textSize="26dp"
+        android:text="@string/zero" />
 
 
 </RelativeLayout>
