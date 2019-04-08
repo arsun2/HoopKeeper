@@ -114,18 +114,19 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/IllegalButton"
         android:layout_toRightOf="@+id/IllegalButton"
-        android:textSize="26dp"
-        android:text="@string/zero" />
+        android:text="@string/zero"
+        android:textSize="26dp" />
 
     <TextView
         android:id="@+id/PlayerTurnovers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TurnoverButton"
         android:layout_alignBottom="@+id/TurnoverButton"
         android:layout_toEndOf="@+id/TurnoverButton"
         android:layout_toRightOf="@+id/TurnoverButton"
-        android:textSize="26dp"
-        android:text="@string/zero" />
+        android:text="@string/zero"
+        android:textSize="26dp" />
 
 
 </RelativeLayout>
