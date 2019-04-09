@@ -19,8 +19,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button PointButton;
     private Button MissButton;
     private Button ReboundButton;
-    private Button IllegalButton;
-    private Button OtherButton;
+    private Button FoulButton;
+    private Button TurnoverButton;
     private Button PlayerStatButton;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
@@ -54,8 +54,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PointButton = (Button) findViewById(R.id.ScoreButton);
         MissButton = (Button) findViewById(R.id.MissButton);
         ReboundButton = (Button) findViewById(R.id.ReboundButton);
-        IllegalButton = (Button) findViewById(R.id.IllegalButton);
-        OtherButton = (Button) findViewById(R.id.TurnoverButton);
+        FoulButton = (Button) findViewById(R.id.FoulButton);
+        TurnoverButton = (Button) findViewById(R.id.TurnoverButton);
         PrevGameButton = (ImageButton) findViewById(R.id.PrevGameButton);
         NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
@@ -63,8 +63,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
         ReboundButton.setOnClickListener(this);
-        IllegalButton.setOnClickListener(this);
-        OtherButton.setOnClickListener(this);
+        FoulButton.setOnClickListener(this);
+        TurnoverButton.setOnClickListener(this);
         PrevGameButton.setOnClickListener(this);
         NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
@@ -85,15 +85,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             info = "Miss:";
         } else if (ClickId == R.id.ReboundButton) {
             info = "Rebound:";
-        } else if (ClickId == R.id.IllegalButton) {
-            info = "Illegal:";
+        } else if (ClickId == R.id.FoulButton) {
+            info = "Foul:";
         } else if (ClickId == R.id.TurnoverButton) {
             info = "Turnover:";
         } else if (ClickId == R.id.NextGameButton){
             switchQuarterHelper(true);
             return;
         } else if (ClickId == R.id.PlayerButton){
-            info = "" + quarterlyGameLog.myPlayerScore() + "," + quarterlyGameLog.myPlayerRebound() + "," + quarterlyGameLog.myPlayerFoul() + "," + quarterlyGameLog.myPlayerTurnover();
             Intent intent = new Intent(this, PlayerStat.class);
             intent.putExtra("gameInfo", gameInfo);
             startActivity(intent);

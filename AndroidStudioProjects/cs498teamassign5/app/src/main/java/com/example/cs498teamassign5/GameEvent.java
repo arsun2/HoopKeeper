@@ -70,10 +70,10 @@ public class GameEvent implements Serializable {
                 case "3Point":
                     this.point = Point.threePoint;
                     break;
-                case "foul":
+                case "Foul":
                     this.stat = Stat.foul;
                     break;
-                case "block":
+                case "Block":
                     this.stat = Stat.block;
                     break;
                 case "Rebound":
