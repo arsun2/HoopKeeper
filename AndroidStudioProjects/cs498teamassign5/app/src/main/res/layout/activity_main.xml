@@ -25,6 +25,7 @@
         android:layout_toStartOf="@+id/ScoreButton"
         android:background="@android:color/transparent"
         android:src="@drawable/leftarrow"
+        android:contentDescription="@string/left_arrow"
         android:tint="@android:color/darker_gray" />
 
     <ImageButton
@@ -37,6 +38,7 @@
         android:layout_toEndOf="@+id/ScoreButton"
         android:background="@android:color/transparent"
         android:src="@drawable/rightarrow"
+        android:contentDescription="@string/right_arrow"
         android:tint="@android:color/darker_gray" />
 
     <TextView
