@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">cs498teamassign5</string>
+    <string name="new_game">New Game</string>
+
+    //for game modification view
+    <string name="team_1">team 1</string>
+    <string name="my_player"> My Player </string>
+    <string name="team_2">team 2</string>
+    <string name="score">Score</string>
+    <string name="foul">Foul</string>
+    <string name="assist">Assist</string>
+    <string name="block">Block</string>
+    <string name="rebound">Rebound</string>
+    <string name="illegal">Illegal</string>
+    <string name="turnover">Turnover</string>
+    <string name="miss">Miss</string>
+    <string name="zero">0</string>
+    <string name="PlayerStats">My Player Stats</string>
+    <string name="title_activity_player_stat">PlayerStat</string>
+
 </resources>
