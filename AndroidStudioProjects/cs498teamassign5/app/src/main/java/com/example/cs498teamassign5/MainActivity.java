@@ -73,7 +73,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -132,6 +131,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
         opposingTeamScore = quarterlyGameLog.opposingTeamScore();
         TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
         opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
+        
+          //to update
+        /*
+        myPlayerScore = 0;
+        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
+        playerPoints.setText(Integer.toString(myPlayerScore));
+        myPlayerRebound = 0;
+        
+        TextView playerRebs = (TextView) findViewById(R.id.PlayerRebounds);
+        playerRebs.setText(Integer.toString(myPlayerRebound));
+        
+        myPlayerFoul = 0;
+        TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
+        playerRebs.setText(Integer.toString(myPlayerFoul));
+        
+        myPlayerTurnover = 0;
+        TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
+        playerRebs.setText(Integer.toString(myPlayerTurnover));*/
 
         //to update
         /*
@@ -152,8 +169,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         playerRebs.setText(Integer.toString(myPlayerTurnover));*/
 
 
+
         myTeamAdapter.notifyDataSetChanged();
         opposingTeamAdapter.notifyDataSetChanged();
+
+        myPlayerScore = gameInfo.myPlayerScore();
+        System.out.printf("myPlayerScore %d\n", myPlayerScore);
     }
 
     public void initializeRecyclerView(){
@@ -171,7 +192,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         ArrayList<GameEvent> myTeamGameLog = quarterlyGameLog.getMyTeamGameLog();
         ArrayList<GameEvent> opposingTeamGameLog = quarterlyGameLog.getOpposingTeamGameLog();
-
+        
         // specify an adapter (see also next example)
         myTeamAdapter = new MyAdapter(myTeamGameLog);
         myTeamRecyclerView.setAdapter(myTeamAdapter);

@@ -109,7 +109,8 @@
         android:layout_below="@+id/myTeamScore"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
-        android:background="#00FFFF"
+        android:background="@drawable/roundbutton_main"
+        android:textColor="#FFFFFF"
         android:text="@string/score" />
 
     <Button
@@ -119,7 +120,8 @@
         android:layout_alignLeft="@+id/ScoreButton"
         android:layout_alignStart="@+id/ScoreButton"
         android:layout_below="@+id/ScoreButton"
-        android:background="#FF0000"
+        android:background="@drawable/roundbutton_red"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/miss" />
 
@@ -130,7 +132,8 @@
         android:layout_alignLeft="@+id/MissButton"
         android:layout_alignStart="@+id/MissButton"
         android:layout_below="@+id/MissButton"
-        android:background="#00FFFF"
+        android:background="@drawable/roundbutton_main"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/rebound" />
 
@@ -162,9 +165,10 @@
         android:layout_alignLeft="@+id/ReboundButton"
         android:layout_alignStart="@+id/ReboundButton"
         android:layout_below="@+id/ReboundButton"
-        android:background="#00FFFF"
+        android:background="@drawable/roundbutton_main"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
-        android:text="@string/foul" />
+        android:text="@string/illegal" />
 
     <Button
         android:id="@+id/TurnoverButton"
@@ -173,7 +177,8 @@
         android:layout_alignLeft="@+id/IllegalButton"
         android:layout_alignStart="@+id/IllegalButton"
         android:layout_below="@+id/IllegalButton"
-        android:background="#00FFFF"
+        android:background="@drawable/roundbutton_main"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/turnover" />
 
@@ -184,7 +189,10 @@
         android:layout_below="@+id/TurnoverButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
-        android:background="#1E90FF	"
+        android:background="@drawable/roundbutton_main"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:text="@string/PlayerStats" />
 
     <android.support.v7.widget.RecyclerView

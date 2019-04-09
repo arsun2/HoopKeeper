@@ -31,4 +31,12 @@ public class GameInfo implements Serializable {
         }
         return quarterlyGameLogs.get(index);
     }
+
+    public int myPlayerScore(){
+        int score = 0;
+        for(QuarterlyGameLog gamelog : quarterlyGameLogs){
+            score+= gamelog.myPlayerScore();
+        }
+        return score;
+    }
 }
