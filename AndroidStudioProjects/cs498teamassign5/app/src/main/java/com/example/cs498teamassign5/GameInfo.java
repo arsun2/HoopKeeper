@@ -39,4 +39,28 @@ public class GameInfo implements Serializable {
         }
         return score;
     }
+
+    public int myPlayerRebound(){
+        int rebound = 0;
+        for(QuarterlyGameLog gamelog : quarterlyGameLogs){
+            rebound+= gamelog.myPlayerRebound();
+        }
+        return rebound;
+    }
+
+    public int myPlayerFoul(){
+        int fould = 0;
+        for(QuarterlyGameLog gamelog : quarterlyGameLogs){
+            fould += gamelog.myPlayerFoul();
+        }
+        return fould;
+    }
+
+    public int myPlayerTurnover(){
+        int turnover = 0;
+        for(QuarterlyGameLog gamelog : quarterlyGameLogs){
+            turnover += gamelog.myPlayerTurnover();
+        }
+        return turnover;
+    }
 }

@@ -83,6 +83,36 @@ public class QuarterlyGameLog implements Serializable {
         return sum;
     }
 
+    public int myPlayerTurnover(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.turnover){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myPlayerRebound(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.rebound){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myPlayerFoul(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.foul){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
     public ArrayList<GameEvent> getMyTeamGameLog(){
         return myTeamGameLog;
     }
