@@ -68,7 +68,7 @@
 
 
     <TextView
-        android:id="@+id/IllegalButton"
+        android:id="@+id/FoulButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/ReboundButton"
@@ -82,9 +82,9 @@
         android:id="@+id/TurnoverButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/IllegalButton"
-        android:layout_alignRight="@+id/IllegalButton"
-        android:layout_below="@+id/IllegalButton"
+        android:layout_alignEnd="@+id/FoulButton"
+        android:layout_alignRight="@+id/FoulButton"
+        android:layout_below="@+id/FoulButton"
         android:layout_marginTop="20dp"
         android:textSize="26dp"
         android:text="Turnovers:" />
@@ -103,7 +103,7 @@
         android:id="@+id/PlayerRebounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/IllegalButton"
+        android:layout_above="@+id/FoulButton"
         android:layout_toEndOf="@+id/ReboundButton"
         android:layout_toRightOf="@+id/ReboundButton"
         android:textSize="26dp"
@@ -113,10 +113,10 @@
         android:id="@+id/PlayerFouls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/IllegalButton"
-        android:layout_alignBottom="@+id/IllegalButton"
-        android:layout_toEndOf="@+id/IllegalButton"
-        android:layout_toRightOf="@+id/IllegalButton"
+        android:layout_alignBaseline="@+id/FoulButton"
+        android:layout_alignBottom="@+id/FoulButton"
+        android:layout_toEndOf="@+id/FoulButton"
+        android:layout_toRightOf="@+id/FoulButton"
         android:text="@string/zero"
         android:textSize="26dp" />
 

@@ -19,18 +19,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button PointButton;
     private Button MissButton;
     private Button ReboundButton;
-    private Button IllegalButton;
-    private Button OtherButton;
+    private Button FoulButton;
+    private Button TurnoverButton;
     private Button PlayerStatButton;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
     private QuarterlyGameLog quarterlyGameLog;
     private int myTeamScore = 0;
     private int opposingTeamScore = 0;
-    private int myPlayerScore = 0;
-    private int myPlayerRebound = 0;
-    private int myPlayerFoul = 0;
-    private int myPlayerTurnover = 0;
     private String info = null;
     private RecyclerView myTeamRecyclerView;
     private RecyclerView opposingTeamRecyclerView;
@@ -58,8 +54,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PointButton = (Button) findViewById(R.id.ScoreButton);
         MissButton = (Button) findViewById(R.id.MissButton);
         ReboundButton = (Button) findViewById(R.id.ReboundButton);
-        IllegalButton = (Button) findViewById(R.id.IllegalButton);
-        OtherButton = (Button) findViewById(R.id.TurnoverButton);
+        FoulButton = (Button) findViewById(R.id.FoulButton);
+        TurnoverButton = (Button) findViewById(R.id.TurnoverButton);
         PrevGameButton = (ImageButton) findViewById(R.id.PrevGameButton);
         NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
@@ -67,8 +63,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
         ReboundButton.setOnClickListener(this);
-        IllegalButton.setOnClickListener(this);
-        OtherButton.setOnClickListener(this);
+        FoulButton.setOnClickListener(this);
+        TurnoverButton.setOnClickListener(this);
         PrevGameButton.setOnClickListener(this);
         NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
@@ -89,8 +85,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             info = "Miss:";
         } else if (ClickId == R.id.ReboundButton) {
             info = "Rebound:";
-        } else if (ClickId == R.id.IllegalButton) {
-            info = "Illegal:";
+        } else if (ClickId == R.id.FoulButton) {
+            info = "Foul:";
         } else if (ClickId == R.id.TurnoverButton) {
             info = "Turnover:";
         } else if (ClickId == R.id.NextGameButton){
@@ -98,8 +94,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return;
         } else if (ClickId == R.id.PlayerButton){
             Intent intent = new Intent(this, PlayerStat.class);
-            intent.putExtra("ans", info);
-            startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
+            intent.putExtra("gameInfo", gameInfo);
+            startActivity(intent);
             return;
         } else {
             switchQuarterHelper(false);
@@ -131,50 +127,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         opposingTeamScore = quarterlyGameLog.opposingTeamScore();
         TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
         opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
-        
-          //to update
-        /*
-        myPlayerScore = 0;
-        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
-        playerPoints.setText(Integer.toString(myPlayerScore));
-        myPlayerRebound = 0;
-        
-        TextView playerRebs = (TextView) findViewById(R.id.PlayerRebounds);
-        playerRebs.setText(Integer.toString(myPlayerRebound));
-        
-        myPlayerFoul = 0;
-        TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
-        playerRebs.setText(Integer.toString(myPlayerFoul));
-        
-        myPlayerTurnover = 0;
-        TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
-        playerRebs.setText(Integer.toString(myPlayerTurnover));*/
-
-        //to update
-        /*
-        myPlayerScore = 0;
-        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
-        playerPoints.setText(Integer.toString(myPlayerScore));
-
-        myPlayerRebound = 0;
-        TextView playerRebs = (TextView) findViewById(R.id.PlayerRebounds);
-        playerRebs.setText(Integer.toString(myPlayerRebound));
-
-        myPlayerFoul = 0;
-        TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
-        playerRebs.setText(Integer.toString(myPlayerFoul));
-
-        myPlayerTurnover = 0;
-        TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
-        playerRebs.setText(Integer.toString(myPlayerTurnover));*/
-
-
 
         myTeamAdapter.notifyDataSetChanged();
         opposingTeamAdapter.notifyDataSetChanged();
-
-        myPlayerScore = gameInfo.myPlayerScore();
-        System.out.printf("myPlayerScore %d\n", myPlayerScore);
     }
 
     public void initializeRecyclerView(){

@@ -123,7 +123,7 @@
         android:text="@string/rebound" />
 
     <Button
-        android:id="@+id/IllegalButton"
+        android:id="@+id/FoulButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ReboundButton"
@@ -131,13 +131,13 @@
         android:background="@drawable/roundbutton_main"
         android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
-        android:text="@string/illegal" />
+        android:text="@string/foul" />
 
     <Button
         android:id="@+id/TurnoverButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/IllegalButton"
+        android:layout_below="@+id/FoulButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_main"
         android:textColor="#FFFFFF"

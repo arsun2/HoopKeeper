@@ -50,7 +50,7 @@ public class QuarterlyGameLog implements Serializable {
     public int myPlayerScore(){
         int sum = 0;
         for(GameEvent gameEvent : myTeamGameLog){
-            if(gameEvent.score){
+            if(gameEvent.score && (gameEvent.player == Player.MyPlayer)){
                 int point = 0;
                 if(gameEvent.point == Point.onePoint){
                     point = 1;
@@ -78,6 +78,36 @@ public class QuarterlyGameLog implements Serializable {
                     point = 3;
                 }
                 sum += point;
+            }
+        }
+        return sum;
+    }
+
+    public int myPlayerTurnover(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.turnover){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myPlayerRebound(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.rebound){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myPlayerFoul(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.foul){
+                sum++;
             }
         }
         return sum;

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bball"
     tools:context=".HomePageActivity">
 
     <Button
@@ -23,6 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:textSize="25dp"
+        android:textColor="#FFFFFF"
         android:text="Welcome to  Hoopkeeper!" />
 
 </RelativeLayout>
