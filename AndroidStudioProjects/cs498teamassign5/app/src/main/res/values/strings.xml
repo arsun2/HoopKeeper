@@ -6,6 +6,7 @@
     <string name="team_1">team 1</string>
     <string name="my_player"> My Player </string>
     <string name="team_2">team 2</string>
+<<<<<<< HEAD
     <string name="score">Score</string>
     <string name="foul">Foul</string>
     <string name="assist">Assist</string>
@@ -18,4 +19,13 @@
     <string name="PlayerStats">My Player Stats</string>
     <string name="title_activity_player_stat">PlayerStat</string>
 
+=======
+    <string name="point">Point</string>
+    <string name="miss">Miss</string>
+    <string name="rebound">Rebound</string>
+    <string name="steal">Steal</string>
+    <string name="foul">Foul</string>
+    <string name="assist">Assist</string>
+    <string name="block">Block</string>
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
 </resources>

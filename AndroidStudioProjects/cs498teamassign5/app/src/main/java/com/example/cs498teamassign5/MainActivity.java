@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener {
+<<<<<<< HEAD
     private static final int SELECT_TEAM_ACTIVITY_REQUEST = 1;
     private Button PointButton;
     private Button MissButton;
@@ -37,12 +38,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int quarterNumber = 0;
     private GameInfo gameInfo;
     private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4"};
+=======
+    public static String Main_Activity_Event = "Main_Activity_Event";
+    public static String Add_Event_String = "Add_Event_Event";
+    public static String ADD_EVENT_RETURN_STRING = "ADD_EVENT_RETURN_STRING";
+    private static final int SELECT_TEAM_ACTIVITY_REQUEST = 1;
+    private Button AddScoreButton;
+    private Button MissButton;
+    private Button ReboundButton;
+    private Button StealButton;
+    private Button FoulButton;
+    private Button AddEventButton;
+    private String info;
+
+    private ArrayList<GameEvent> gameLog;
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         Intent intent = getIntent();
         gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
         quarterlyGameLog = gameInfo.get(quarterNumber);
@@ -68,6 +85,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NextGameButton.setOnClickListener(this);
 
     }
+=======
+        AddEventButton = (Button) findViewById(R.id.add_event_button);
+        AddScoreButton = (Button) findViewById(R.id.add_score_button);
+        MissButton = (Button) findViewById(R.id.miss_button);
+        ReboundButton = (Button) findViewById(R.id.rebound_button);
+        StealButton = (Button) findViewById(R.id.steal_button);
+        FoulButton = (Button) findViewById(R.id.foul_button);
+
+        AddScoreButton.setOnClickListener(this);
+        MissButton.setOnClickListener(this);
+        ReboundButton.setOnClickListener(this);
+        StealButton.setOnClickListener(this);
+        FoulButton.setOnClickListener(this);
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
 
     @Override
     protected void onResume(){
@@ -75,6 +106,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         updateScoreAndStat();
     }
 
+<<<<<<< HEAD
     public void onClick(View v) {
         int ClickId = v.getId();
         if (ClickId == R.id.ScoreButton) {
@@ -93,6 +125,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else {
             switchQuarterHelper(false);
             return;
+=======
+    public void onClick(View v){
+        int clickId = v.getId();
+
+        Intent SelectTeamIntent = getIntent();
+        info = SelectTeamIntent.getStringExtra(SelectTeamActivity.Select_Team_Event);
+
+        if (clickId == R.id.add_score_button) {
+            Intent intent = new Intent(this, AddScoreActivity.class);
+            intent.putExtra(Add_Event_String, info);
+        } else {
+            if (clickId == R.id.foul_button){
+                info = info + "foul:";
+            } else if (clickId == R.id.assist_button){
+                info = info + "assist:";
+            } else if (clickId == R.id.rebound_button){
+                info = info + "rebound:";
+            } else if (clickId == R.id.block_button){
+                info = info + "rebound:";
+            }
+            Intent returnIntent  = new Intent();
+            returnIntent.putExtra(ADD_EVENT_RETURN_STRING, info);
+            setResult(RESULT_OK, returnIntent);
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
         }
         Intent intent = new Intent(this, SelectTeamActivity.class);
         intent.putExtra("ans", info);

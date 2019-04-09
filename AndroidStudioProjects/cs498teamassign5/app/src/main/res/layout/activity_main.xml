@@ -103,7 +103,11 @@
 
 
     <Button
+<<<<<<< HEAD
         android:id="@+id/ScoreButton"
+=======
+        android:id="@+id/add_score_button"
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/myTeamScore"
@@ -114,6 +118,7 @@
         android:text="@string/score" />
 
     <Button
+<<<<<<< HEAD
         android:id="@+id/MissButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -138,6 +143,28 @@
         android:text="@string/rebound" />
 
     <!--this is the left vertical grey bar-->
+=======
+        android:id="@+id/miss_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_score_button"
+        android:layout_alignStart="@+id/add_score_button"
+        android:layout_below="@+id/add_score_button"
+        android:backgroundTint="#FF0000"
+        android:layout_marginTop="27dp"
+        android:text="Miss" />
+
+    <Button
+        android:id="@+id/rebound_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/miss_button"
+        android:layout_alignStart="@+id/miss_button"
+        android:layout_below="@+id/miss_button"
+        android:backgroundTint="#00FFFF"
+        android:layout_marginTop="27dp"
+        android:text="Rebound" />
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
     <View
         android:id="@+id/verticalBarLeft"
         android:layout_width="1dp"
@@ -159,6 +186,7 @@
     <!--android:layout_alignRight="@+id/opposingTeamScore"-->
 
     <Button
+<<<<<<< HEAD
         android:id="@+id/IllegalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -181,6 +209,28 @@
         android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/turnover" />
+=======
+        android:id="@+id/steal_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rebound_button"
+        android:layout_alignStart="@+id/rebound_button"
+        android:layout_below="@+id/rebound_button"
+        android:backgroundTint="#00FFFF"
+        android:layout_marginTop="26dp"
+        android:text="Steal" />
+
+    <Button
+        android:id="@+id/foul_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/steal_button"
+        android:layout_alignStart="@+id/steal_button"
+        android:layout_below="@+id/steal_button"
+        android:backgroundTint="#00FFFF"
+        android:layout_marginTop="22dp"
+        android:text="Foul" />
+>>>>>>> 18adc878d625cdc9f2481206d098059b9de72375
 
     <Button
         android:id="@+id/PlayerButton"
