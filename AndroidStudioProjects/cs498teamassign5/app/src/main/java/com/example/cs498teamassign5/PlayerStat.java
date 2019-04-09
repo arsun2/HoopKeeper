@@ -52,7 +52,7 @@ public class PlayerStat extends Activity implements View.OnClickListener {
         TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
         playerFouls.setText(Integer.toString(myPlayerFoul));
 
-        myPlayerTurnover = turnovers;
+        myPlayerTurnover = gameInfo.myPlayerTurnover();
         TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
         playerRebs.setText(Integer.toString(myPlayerTurnover));
     }
