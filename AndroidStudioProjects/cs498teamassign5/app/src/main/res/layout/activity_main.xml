@@ -129,7 +129,7 @@
         android:background="@drawable/roundbutton_main"
         android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
-        android:text="@string/illegal" />
+        android:text="@string/foul" />
 
     <Button
         android:id="@+id/TurnoverButton"

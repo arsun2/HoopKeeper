@@ -97,6 +97,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             switchQuarterHelper(true);
             return;
         } else if (ClickId == R.id.PlayerButton){
+            info = "" + quarterlyGameLog.myPlayerScore() + "," + quarterlyGameLog.myPlayerRebound() + "," + quarterlyGameLog.myPlayerFoul() + "," + quarterlyGameLog.myPlayerTurnover();
             Intent intent = new Intent(this, PlayerStat.class);
             intent.putExtra("ans", info);
             startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
@@ -132,13 +133,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         TextView opposingTeamScoreView = (TextView) findViewById(R.id.opposingTeamScore);
         opposingTeamScoreView.setText(Integer.toString(opposingTeamScore));
         
-          //to update
+
+//        myPlayerScore = quarterlyGameLog.myPlayerScore();
+//        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
+//        playerPoints.setText(Integer.toString(myPlayerScore));
+
         /*
-        myPlayerScore = 0;
-        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
-        playerPoints.setText(Integer.toString(myPlayerScore));
         myPlayerRebound = 0;
-        
         TextView playerRebs = (TextView) findViewById(R.id.PlayerRebounds);
         playerRebs.setText(Integer.toString(myPlayerRebound));
         
@@ -148,26 +149,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         
         myPlayerTurnover = 0;
         TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
-        playerRebs.setText(Integer.toString(myPlayerTurnover));*/
-
-        //to update
-        /*
-        myPlayerScore = 0;
-        TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
-        playerPoints.setText(Integer.toString(myPlayerScore));
-
-        myPlayerRebound = 0;
-        TextView playerRebs = (TextView) findViewById(R.id.PlayerRebounds);
-        playerRebs.setText(Integer.toString(myPlayerRebound));
-
-        myPlayerFoul = 0;
-        TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
-        playerRebs.setText(Integer.toString(myPlayerFoul));
-
-        myPlayerTurnover = 0;
-        TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
-        playerRebs.setText(Integer.toString(myPlayerTurnover));*/
-
+        playerRebs.setText(Integer.toString(myPlayerTurnover));
+        */
 
 
         myTeamAdapter.notifyDataSetChanged();
