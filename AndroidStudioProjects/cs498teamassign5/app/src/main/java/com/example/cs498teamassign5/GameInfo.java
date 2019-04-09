@@ -49,11 +49,11 @@ public class GameInfo implements Serializable {
     }
 
     public int myPlayerFoul(){
-        int fould = 0;
+        int foul = 0;
         for(QuarterlyGameLog gamelog : quarterlyGameLogs){
-            fould += gamelog.myPlayerFoul();
+            foul += gamelog.myPlayerFoul();
         }
-        return fould;
+        return foul;
     }
 
     public int myPlayerTurnover(){

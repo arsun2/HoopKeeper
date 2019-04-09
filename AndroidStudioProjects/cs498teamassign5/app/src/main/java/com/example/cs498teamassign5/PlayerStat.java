@@ -40,7 +40,6 @@ public class PlayerStat extends Activity implements View.OnClickListener {
 
     public void updatePlayerStats(){
         myPlayerScore = gameInfo.myPlayerScore();
-        System.out.printf("myPlayerScore: %d\n", myPlayerScore);
         TextView playerPoints = (TextView) findViewById(R.id.PlayerPoints);
         playerPoints.setText(Integer.toString(myPlayerScore));
 
@@ -54,6 +53,6 @@ public class PlayerStat extends Activity implements View.OnClickListener {
 
         myPlayerTurnover = gameInfo.myPlayerTurnover();
         TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
-        playerRebs.setText(Integer.toString(myPlayerTurnover));
+        playerTurnovers.setText(Integer.toString(myPlayerTurnover));
     }
 }
