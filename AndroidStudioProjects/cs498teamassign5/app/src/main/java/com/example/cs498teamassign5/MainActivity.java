@@ -93,6 +93,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             switchQuarterHelper(true);
             return;
         } else if (ClickId == R.id.PlayerButton){
+            info = "" + quarterlyGameLog.myPlayerScore() + "," + quarterlyGameLog.myPlayerRebound() + "," + quarterlyGameLog.myPlayerFoul() + "," + quarterlyGameLog.myPlayerTurnover();
             Intent intent = new Intent(this, PlayerStat.class);
             intent.putExtra("gameInfo", gameInfo);
             startActivity(intent);

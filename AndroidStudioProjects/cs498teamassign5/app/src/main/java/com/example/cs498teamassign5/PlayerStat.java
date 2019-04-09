@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class PlayerStat extends Activity implements View.OnClickListener {
     private static final int MAIN_ACTIVITY_REQUEST = 1;
@@ -20,6 +22,7 @@ public class PlayerStat extends Activity implements View.OnClickListener {
     private int myPlayerRebound = 0;
     private int myPlayerFoul = 0;
     private int myPlayerTurnover = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,8 @@ public class PlayerStat extends Activity implements View.OnClickListener {
         TextView playerFouls = (TextView) findViewById(R.id.PlayerFouls);
         playerFouls.setText(Integer.toString(myPlayerFoul));
 
-        myPlayerTurnover = gameInfo.myPlayerTurnover();
+        myPlayerTurnover = turnovers;
         TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
-        playerTurnovers.setText(Integer.toString(myPlayerTurnover));
+        playerRebs.setText(Integer.toString(myPlayerTurnover));
     }
 }
