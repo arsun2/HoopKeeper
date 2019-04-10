@@ -25,6 +25,7 @@
         android:layout_toStartOf="@+id/ScoreButton"
         android:background="@android:color/transparent"
         android:src="@drawable/leftarrow"
+        android:rotation="270"
         android:contentDescription="@string/left_arrow"
         android:tint="@android:color/darker_gray" />
 
@@ -38,6 +39,7 @@
         android:layout_toEndOf="@+id/ScoreButton"
         android:background="@android:color/transparent"
         android:src="@drawable/rightarrow"
+        android:rotation="270"
         android:contentDescription="@string/right_arrow"
         android:tint="@android:color/darker_gray" />
 
@@ -62,11 +64,23 @@
         android:text="Opposing Team" />
 
     <TextView
+        android:id="@+id/vsMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:layout_below="@+id/quarterNumber"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="@string/vs" />
+
+    <TextView
         android:id="@+id/myTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/myTeamName"
-        android:layout_alignRight="@+id/myTeamName"
+        android:layout_alignLeft="@+id/PrevGameButton"
         android:textSize="25dp"
         android:text="@string/zero"/>
 
@@ -75,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/opposingTeamName"
-        android:layout_alignLeft="@+id/opposingTeamName"
+        android:layout_alignRight="@+id/NextGameButton"
         android:textSize="25dp"
         android:text="@string/zero"/>
 
@@ -204,6 +218,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="✔" />
+
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/myTeamName"
+        android:layout_toStartOf="@+id/myTeamName"
+        android:text="Mike" />
 
 </RelativeLayout>
 

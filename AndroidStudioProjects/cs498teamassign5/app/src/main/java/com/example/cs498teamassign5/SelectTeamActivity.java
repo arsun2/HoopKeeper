@@ -19,9 +19,9 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_team);
 
-        TeamOneButton = (Button) findViewById(R.id.team_1_button);
-        TeamTwoButton = (Button) findViewById(R.id.team_2_button);
-        OtherPlayerButton = (Button) findViewById(R.id.button6);
+        TeamOneButton = (Button) findViewById(R.id.myPlayer);
+        TeamTwoButton = (Button) findViewById(R.id.opposingPlayer);
+        OtherPlayerButton = (Button) findViewById(R.id.otherTeamMember);
 
         TeamOneButton.setOnClickListener(this);
         TeamTwoButton.setOnClickListener(this);
@@ -39,11 +39,11 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         * "MyTeam:" For my team, but not my player
         */
         boolean needScore = info.equals("Score:") || info.equals("Miss:");
-        if (v.getId() == R.id.team_1_button) {
+        if (v.getId() == R.id.myPlayer) {
             info += "MyPlayer:";
-        } else if (v.getId() == R.id.team_2_button) {
+        } else if (v.getId() == R.id.opposingPlayer) {
             info += "OpposingTeam:";
-        } else if (v.getId() == R.id.button6) {
+        } else if (v.getId() == R.id.otherTeamMember) {
             info += "MyTeam:";
         }
 
