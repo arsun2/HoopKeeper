@@ -27,6 +27,7 @@ public class HomePageActivity extends Activity implements View.OnClickListener {
     public void onClick(View v){
         if(v.getId() == R.id.NewGameButton) {
             Intent intent = new Intent(this, MainActivity.class);
+
             GameInfo gameInfo = new GameInfo();
             intent.putExtra("gameInfo", gameInfo);
             startActivityForResult(intent, MAIN_ACTIVITY_REQUEST);
