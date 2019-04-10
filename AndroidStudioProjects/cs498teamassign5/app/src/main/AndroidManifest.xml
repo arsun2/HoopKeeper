@@ -12,6 +12,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SelectTeamActivity" />
         <activity android:name=".SelectScoreActivity" />
+        <activity android:name=".GameHistoryActivity" />
         <activity android:name=".PlayerStat" />
         <activity android:name=".HomePageActivity">
             MainActivity

@@ -19,6 +19,7 @@
     <string name="zero">0</string>
     <string name="PlayerStats">My Player Stats</string>
     <string name="title_activity_player_stat">PlayerStat</string>
+    <string name="title_activity_game_history">GameHistoryActivity</string>
 
     <!-- for activity_add_score -->
     <string name="points_scored">Points:</string>
