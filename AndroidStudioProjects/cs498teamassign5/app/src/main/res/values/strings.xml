@@ -8,6 +8,7 @@
     <string name="left_arrow">Left Arrow</string>
     <string name="right_arrow">Right Arrow</string>
     <string name="team_2">team 2</string>
+    <string name="vs">:</string>
     <string name="score">Score</string>
     <string name="foul">Foul</string>
     <string name="assist">Assist</string>
