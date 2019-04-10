@@ -23,12 +23,12 @@ public class SelectScoreActivity extends Activity implements View.OnClickListene
         OnePointButton = (Button) findViewById(R.id.one_point_button);
         TwoPointButton = (Button) findViewById(R.id.two_point_button);
         ThreePointButton = (Button) findViewById(R.id.three_point_button);
-        CancelButton = (Button) findViewById(R.id.cancelButton);
+//        CancelButton = (Button) findViewById(R.id.cancelButton);
 
         OnePointButton.setOnClickListener(this);
         TwoPointButton.setOnClickListener(this);
         ThreePointButton.setOnClickListener(this);
-        CancelButton.setOnClickListener(this);
+//        CancelButton.setOnClickListener(this);
 
         Intent i = getIntent();
         info = i.getStringExtra("ans");
@@ -46,12 +46,13 @@ public class SelectScoreActivity extends Activity implements View.OnClickListene
             info = info + "2Point:";
         } else if (clickId == R.id.three_point_button) {
             info = info + "3Point:";
-        } else if(clickId == R.id.cancelButton){
+        }
+//        else if(clickId == R.id.cancelButton){
             //info = "";
             //intent.putExtra("ans", info);
             //setResult(RESULT_OK, intent);
             //onDestroy();
-        }
+//        }
         intent.putExtra("ans", info);
         setResult(RESULT_OK, intent);
         finish();
