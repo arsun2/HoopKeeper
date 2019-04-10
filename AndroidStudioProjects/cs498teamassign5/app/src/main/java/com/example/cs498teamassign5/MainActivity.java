@@ -22,6 +22,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button FoulButton;
     private Button TurnoverButton;
     private Button PlayerStatButton;
+    private Button FinishButton;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
     private Button CompleteButton;
@@ -61,6 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
         CompleteButton = (Button) findViewById(R.id.completeButton);
+        FinishButton = (Button) findViewById(R.id.finishButton);
 
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
@@ -71,6 +73,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
         CompleteButton.setOnClickListener(this);
+        FinishButton.setOnClickListener(this);
 
     }
 
@@ -104,6 +107,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(this, GameHistoryActivity.class);
             intent.putExtra("gameInfo", gameInfo);
             startActivity(intent);
+            return;
+        } else if (ClickId == R.id.finishButton){
+            //todo
             return;
         } else {
             switchQuarterHelper(false);

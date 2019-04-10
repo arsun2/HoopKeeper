@@ -219,5 +219,14 @@
         android:layout_alignParentTop="true"
         android:text="✔" />
 
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/myTeamName"
+        android:layout_toStartOf="@+id/myTeamName"
+        android:text="Mike" />
+
 </RelativeLayout>
 
