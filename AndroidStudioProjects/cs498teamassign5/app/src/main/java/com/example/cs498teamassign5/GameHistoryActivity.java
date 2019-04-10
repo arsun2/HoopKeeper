@@ -176,6 +176,8 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         // detail Bar
         myTeamScaleScore = ((double) (myTeamScore) / (double) (myTeamScore + opposingTeamScore)) * barWidth;
         setGraphBar(R.id.ourTeamPointBar, myTeamScaleScore);
+
+        opposete
     }
     
     private void setGraphBar(int viewID, double newWidth) {

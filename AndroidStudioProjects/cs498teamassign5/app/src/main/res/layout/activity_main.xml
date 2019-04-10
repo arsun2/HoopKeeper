@@ -196,21 +196,12 @@
         android:id="@+id/myTeam_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:textSize="10sp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_below="@+id/horizontal_bar"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/myTeamName" />
-=======
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/horizontal_bar"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:scrollbars="vertical" />
->>>>>>> b3a6a32fa605e55cc7232a808ff15ce07560015a
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/opposingTeam_recycler_view"
