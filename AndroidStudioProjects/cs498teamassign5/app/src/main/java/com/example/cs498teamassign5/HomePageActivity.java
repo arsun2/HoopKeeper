@@ -25,14 +25,6 @@ public class HomePageActivity extends Activity implements View.OnClickListener {
 
         allGames = new ArrayList<>();
 
-        Intent intent = getIntent();
-        if(intent != null){
-            GameInfo gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
-            if(gameInfo != null){
-                allGames.add(gameInfo);
-            }
-        }
-
         NewGameButton = (Button) findViewById(R.id.NewGameButton);
         HistoryButton = (Button) findViewById(R.id.HistoryButton);
         NewGameButton.setOnClickListener(this);
@@ -56,8 +48,20 @@ public class HomePageActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(this, ChooseHistoryActivity.class);
             GameInfo gameInfo = new GameInfo();
             intent.putExtra("allgames", allGames);
-
             startActivity(intent);
+        }
+    }
+
+    public void onActivityResult(int activityCode, int resultCode, Intent intent) {
+        //System.out.println("hey there");
+        if (activityCode == MAIN_ACTIVITY_REQUEST){
+            if(resultCode == RESULT_OK){
+                System.out.print("home page result\n");
+                GameInfo gameinfo = (GameInfo)intent.getSerializableExtra("gameInfo");
+                if(gameinfo != null){
+                    allGames.add(gameinfo);
+                }
+            }
         }
     }
 }

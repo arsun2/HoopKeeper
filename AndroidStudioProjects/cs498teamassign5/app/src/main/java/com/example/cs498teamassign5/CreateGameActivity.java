@@ -75,10 +75,23 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
             //intent.putExtra("gameInfo", gameInfo);
             startActivityForResult(intent, MAIN_ACTIVITY_REQUEST);
         }
-
     }
 
     public void updatePlayerStats(){
 
+    }
+
+    public void onActivityResult(int activityCode, int resultCode, Intent intent) {
+        //System.out.println("hey there");
+        if (activityCode == MAIN_ACTIVITY_REQUEST){
+            if(resultCode == RESULT_OK){
+                System.out.print("create game result\n");
+                GameInfo gameinfo = (GameInfo)intent.getSerializableExtra("gameInfo");
+                Intent resultIntent = new Intent(this, HomePageActivity.class);
+                resultIntent.putExtra("gameInfo", gameinfo);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        }
     }
 }

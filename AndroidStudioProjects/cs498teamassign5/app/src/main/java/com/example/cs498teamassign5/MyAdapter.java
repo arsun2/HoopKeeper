@@ -43,7 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        System.out.printf("adapter postion: %d\n", position);
+        System.out.printf("adapter postion in main_activity adapter: %d\n", position);
         String newString;
         GameEvent gameEvent = gameLog.get(position);
         if(gameEvent.score){
