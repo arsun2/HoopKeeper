@@ -61,9 +61,9 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
     private double othersInTeamScaleFoul;
     private double playerScaleTurnover;
     private double othersInTeamScaleTurnover;
-    
+
     private static final double barWidth = 160.0;
-    
+   
 
 
     @Override
@@ -115,6 +115,7 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
 
         TextView playerALabel = (TextView) findViewById(R.id.playerALabel);
         playerALabel.setText(playerName);
+
 
         // Game Score
         myTeamScore = gameInfo.myTeamScore();
@@ -192,6 +193,7 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
         // detail Bar
         myTeamScaleScore = ((double) (myTeamScore) / (double) (myTeamScore + opposingTeamScore)) * barWidth;
         setGraphBar(R.id.ourTeamPointBar, myTeamScaleScore);
+
         opposingTeamScaleScore = ((double) (opposingTeamScore) / (double) (myTeamScore + opposingTeamScore)) * barWidth;
         setGraphBar(R.id.opposeTeamPointBar, opposingTeamScaleScore);
 
@@ -229,6 +231,7 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
         setGraphBar(R.id.ourPlayerTurnoverBar, playerScaleTurnover);
         othersInTeamScaleTurnover = ((double) (othersInTeamTurnover) / (double) (playerTurnover + othersInTeamTurnover)) * barWidth;
         setGraphBar(R.id.opposePlayerTurnoverBar, othersInTeamScaleTurnover);
+
     }
     
     private void setGraphBar(int viewID, double newWidth) {

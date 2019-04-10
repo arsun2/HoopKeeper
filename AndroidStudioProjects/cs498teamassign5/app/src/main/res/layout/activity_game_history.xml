@@ -7,6 +7,7 @@
     android:paddingTop="5dp">
 
     <TextView
+<<<<<<< HEAD
         android:id="@+id/summaryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,6 +15,15 @@
         android:layout_marginTop="3dp"
         android:text="Game Summary"
         android:textSize="35dp" />
+=======
+    android:id="@+id/summaryTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="3dp"
+    android:text="Game Summary"
+    android:textSize="35dp" />
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
     <ImageView
         android:id="@+id/checkmarkImageView"
@@ -145,6 +155,10 @@
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
         android:textColor="#39a197" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
     <TextView
         android:id="@+id/teamBLabel"
@@ -233,7 +247,6 @@
         android:textStyle="normal"
         android:textColor="#000000" />
 
->>>>>>> GameButtonInteraction
     <View
         android:id="@+id/ourTeamReboundBar"
         android:layout_width="100dp"
@@ -293,7 +306,11 @@
         android:textStyle="normal"
         android:textColor="#000000" />
 
+<<<<<<< HEAD
 
+=======
+    <!-- point -->
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
     <View
         android:id="@+id/ourTeamFoulBar"
         android:layout_width="100dp"
@@ -535,6 +552,10 @@
         android:layout_below="@id/teamALabel"
         android:background="#39a197" />
 
+<<<<<<< HEAD
+=======
+    <!-- turnover -->
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
     <TextView
         android:id="@+id/ourPlayerReboundLabel"
         android:layout_width="wrap_content"

@@ -214,7 +214,7 @@
         android:layout_below="@id/horizontal_bar"
         android:layout_alignParentRight="true"
         android:layout_alignLeft="@+id/opposingTeamName"
-        android:textAlignment="viewEnd"
+        android:textAlignment="textEnd"
         android:layout_gravity="end" />
 
     <Button
