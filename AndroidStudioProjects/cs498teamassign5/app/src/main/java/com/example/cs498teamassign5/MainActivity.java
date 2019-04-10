@@ -23,10 +23,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button TurnoverButton;
     private Button PlayerStatButton;
     private Button FinishButton;
+    private TextView myTeamNameT;
+    private TextView opposingTeamNameT;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
     private Button CompleteButton;
     private QuarterlyGameLog quarterlyGameLog;
+
+    private String myTeamName = "";
+    private String opposingTeamName = "";
+
     private int myTeamScore = 0;
     private int opposingTeamScore = 0;
     private String info = null;
@@ -46,8 +52,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
+        //gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
+        //quarterlyGameLog = gameInfo.get(quarterNumber);
+
+
+        Bundle info = intent.getExtras();
+        gameInfo = (GameInfo)info.getSerializable("gameInfo");
         quarterlyGameLog = gameInfo.get(quarterNumber);
+        myTeamName = (String)info.getSerializable("myTeamName");
+        opposingTeamName = (String) info.getSerializable("opposingTeam");
+
 
         //Adapters Initialization
         initializeQuarter();
@@ -63,6 +77,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
         CompleteButton = (Button) findViewById(R.id.completeButton);
         FinishButton = (Button) findViewById(R.id.finishButton);
+
+        myTeamNameT = (TextView) findViewById(R.id.myTeamName);
+        opposingTeamNameT = (TextView) findViewById(R.id.opposingTeamName);
+        myTeamNameT.setText(myTeamName);
+        opposingTeamNameT.setText(opposingTeamName);
 
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
@@ -100,12 +119,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return;
         } else if (ClickId == R.id.PlayerButton){
             Intent intent = new Intent(this, PlayerStat.class);
+            Bundle playerStatBundle = new Bundle();
             intent.putExtra("gameInfo", gameInfo);
             startActivity(intent);
             return;
         } else if (ClickId == R.id.completeButton){
             Intent intent = new Intent(this, GameHistoryActivity.class);
-            intent.putExtra("gameInfo", gameInfo);
+            Bundle gameSummaryBundle = new Bundle();
+            gameSummaryBundle.putSerializable("gameInfo", gameInfo);
+            gameSummaryBundle.putString("myTeamName", myTeamName);
+            gameSummaryBundle.putString("opposingTeamName", opposingTeamName);
+            //intent.putExtra("gameInfo", gameInfo);
+            intent.putExtras(gameSummaryBundle);
             startActivity(intent);
             return;
         } else if (ClickId == R.id.finishButton){
