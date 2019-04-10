@@ -47,9 +47,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         String newString;
         GameEvent gameEvent = gameLog.get(position);
         if(gameEvent.score){
-            newString = "Score: " + gameEvent.point.toString();
+            if(gameEvent.point.toString().toLowerCase().equals("threepoint")){
+                newString = "Score: " + "3PT";
+            } else if(gameEvent.point.toString().toLowerCase().equals("twopoint")) {
+                newString = "Score: " + "2PT";
+            } else {
+                newString = "Score: " + "1PT";
+            }
+            //newString = "Score: " + gameEvent.point.toString();
         } else if (gameEvent.miss){
-            newString = "Miss: " + gameEvent.point.toString();
+            if(gameEvent.point.toString().toLowerCase().equals("threepoint")){
+                newString = "Miss: " + "3PT";
+            } else if(gameEvent.point.toString().toLowerCase().equals("twopoint")) {
+                newString = "Miss: " + "2PT";
+            } else {
+                newString = "Miss: " + "1PT";
+            }
         } else {
             newString = gameEvent.stat.toString();
         }
