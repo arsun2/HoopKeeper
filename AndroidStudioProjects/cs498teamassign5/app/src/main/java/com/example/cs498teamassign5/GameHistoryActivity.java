@@ -25,7 +25,9 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         setContentView(R.layout.activity_game_history);
 
         Intent intent = getIntent();
-        gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
+        Bundle gameHistInfo = intent.getExtras();
+        gameInfo = (GameInfo) gameHistInfo.getSerializable("gameInfo");
+
         updatePlayerStats();
     }
 

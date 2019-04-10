@@ -42,7 +42,12 @@ public class HomePageActivity extends Activity implements View.OnClickListener {
 
     public void onClick(View v){
         if(v.getId() == R.id.NewGameButton) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, CreateGameActivity.class);
+
+
+            //GameInfo gameInfo = new GameInfo();
+            //intent.putExtra("gameInfo", gameInfo);
+            //startActivityForResult(intent, MAIN_ACTIVITY_REQUEST);
 
             GameInfo gameInfo = new GameInfo();
             intent.putExtra("gameInfo", gameInfo);
@@ -51,6 +56,7 @@ public class HomePageActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(this, ChooseHistoryActivity.class);
             GameInfo gameInfo = new GameInfo();
             intent.putExtra("allgames", allGames);
+
             startActivity(intent);
         }
     }
