@@ -9,23 +9,23 @@
 
     <TextView
         android:id="@+id/quarterNumber"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:padding="18dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:textSize="18dp"
+        android:textSize="24sp"
         android:textColor="#000000" />
 
-
-    <Button
-        android:id="@+id/startButton"
+    <ImageView
+        android:id="@+id/locationImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:text="Start" />
+        android:src="@drawable/location"
+        android:layout_alignTop="@+id/editText"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignLeft="@+id/timeImage"
+        android:layout_alignRight="@+id/timeImage" />
 
     <EditText
         android:id="@+id/editText"
@@ -36,9 +36,18 @@
         android:layout_alignParentRight="true"
         android:layout_alignStart="@+id/quarterNumber"
         android:layout_below="@+id/quarterNumber"
-        android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="20sp"
         android:text="Location" />
+
+    <ImageView
+        android:id="@+id/timeImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/time"
+        android:layout_alignTop="@+id/TimeText"
+        android:layout_alignBottom="@+id/TimeText"
+        android:layout_toLeftOf="@+id/startButton" />
 
     <EditText
         android:id="@+id/TimeText"
@@ -47,10 +56,45 @@
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText"
         android:layout_below="@+id/editText"
-        android:layout_marginTop="31dp"
-        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="36dp"
         android:inputType="textPersonName"
+        android:textSize="20sp"
         android:text="Time" />
+
+    <ImageView
+        android:id="@+id/playerImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/man"
+        android:layout_alignTop="@+id/playerText"
+        android:layout_alignBottom="@+id/playerText"
+        android:layout_alignLeft="@+id/timeImage"
+        android:layout_alignRight="@+id/timeImage" />
+
+    <EditText
+        android:id="@+id/playerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TimeText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/TimeText"
+        android:layout_below="@+id/TimeText"
+        android:layout_marginTop="36dp"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:text="Your Player" />
+
+    <ImageView
+        android:id="@+id/teamImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/basketball_jersey"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/timeImage"
+        android:layout_alignRight="@+id/timeImage" />
 
     <EditText
         android:id="@+id/MyTeamText"
@@ -58,10 +102,12 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TimeText"
         android:layout_alignStart="@+id/TimeText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/playerText"
-        android:layout_marginTop="31dp"
-        android:ems="10"
+        android:layout_marginTop="36dp"
         android:inputType="textPersonName"
+        android:textSize="20sp"
         android:text="Your Team" />
 
     <TextView
@@ -69,13 +115,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyTeamText"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="24dp"
-        android:layout_toEndOf="@+id/startButton"
         android:layout_toRightOf="@+id/startButton"
         android:text="VS"
-        android:textSize="20dp" />
+        android:layout_marginTop="36dp"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/OpposingText"
@@ -87,24 +130,20 @@
         android:layout_alignStart="@+id/MyTeamText"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="18dp"
-        android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="20sp"
         android:text="Opposing Team" />
 
-    <EditText
-        android:id="@+id/playerText"
+    <Button
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TimeText"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignStart="@+id/TimeText"
-        android:layout_below="@+id/TimeText"
-        android:layout_marginTop="35dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Your Player" />
-
+        android:layout_below="@+id/OpposingText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:background="@drawable/roundbutton_main"
+        android:textColor="#ffffff"
+        android:text="Start" />
 
 </RelativeLayout>
 
