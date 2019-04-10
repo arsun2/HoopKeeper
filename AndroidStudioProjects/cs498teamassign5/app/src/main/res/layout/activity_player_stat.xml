@@ -26,16 +26,18 @@
         android:layout_centerHorizontal="true"
         android:text="My Player"
         android:textColor="#000000"
-        android:textSize="36dp" />
+        android:textSize="24dp" />
 
 
     <View
-        android:layout_width="340dp"
+        android:id="@+id/horizontal_bar"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/myTeamScore"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:layout_below="@+id/myTeamName"
         android:layout_centerHorizontal="true"
-        android:background="#816D6C6C"
-        android:id="@+id/horizontal_bar"/>
+        android:background="#6C6C6C" />
 
 
     <TextView

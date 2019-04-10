@@ -5,6 +5,8 @@
     //for game modification view
     <string name="team_1">team 1</string>
     <string name="my_player"> My Player </string>
+    <string name="left_arrow">Left Arrow</string>
+    <string name="right_arrow">Right Arrow</string>
     <string name="team_2">team 2</string>
     <string name="score">Score</string>
     <string name="foul">Foul</string>
