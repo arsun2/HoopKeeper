@@ -134,7 +134,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             startActivity(intent);
             return;
         } else if (ClickId == R.id.finishButton){
-            //todo
+            Intent intent = new Intent(this, HomePageActivity.class);
+            intent.putExtra("gameInfo", gameInfo);
+            startActivity(intent);
             return;
         } else {
             switchQuarterHelper(false);

@@ -8,90 +8,34 @@
     android:paddingRight="16dp" >
 
     <TextView
-        android:id="@+id/opposingMisses"
-        android:layout_width="wrap_content"
+        android:id="@+id/quarterNumber"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/opposingTeamMisses"
-        android:layout_alignBottom="@+id/opposingTeamMisses"
-        android:layout_toEndOf="@+id/opposingTeamMisses"
-        android:layout_toRightOf="@+id/opposingTeamMisses"
-        android:text="@string/zero"
-        android:textSize="26dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:textSize="18dp"
+        android:textColor="#000000" />
 
     <TextView
-        android:id="@+id/myTeamMisses"
+        android:id="@+id/game_summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ReboundButton"
-        android:layout_alignEnd="@+id/myTeamName"
-        android:layout_alignRight="@+id/myTeamName"
-        android:text="@string/zero"
-        android:textSize="26dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Game Summary"
+        android:textSize="35dp" />
 
     <TextView
-        android:id="@+id/opposingTeamTurnovers"
+        android:id="@+id/myTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/turnoverButton"
-        android:layout_alignBottom="@+id/turnoverButton"
-        android:layout_toEndOf="@+id/turnoverButton"
-        android:layout_toRightOf="@+id/turnoverButton"
-        android:text="@string/zero"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/opposingTeamPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/scoreButton"
-        android:layout_alignBottom="@+id/scoreButton"
-        android:layout_toEndOf="@+id/scoreButton"
-        android:layout_toRightOf="@+id/scoreButton"
-        android:text="@string/zero"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/turnoverButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myTeamTurnovers"
-        android:layout_alignBottom="@+id/myTeamTurnovers"
-        android:layout_alignLeft="@+id/reboundButton"
-        android:layout_alignStart="@+id/reboundButton"
-        android:text="Turnovers:"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/foulButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/TurnoverButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="Fouls:"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/reboundButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ReboundButton"
-        android:layout_alignBottom="@+id/ReboundButton"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:text="Rebounds:"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/scoreButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myTeamPoints"
-        android:layout_alignBottom="@+id/myTeamPoints"
-        android:layout_alignLeft="@+id/opposingTeamMisses"
-        android:layout_alignStart="@+id/opposingTeamMisses"
-        android:text="Points:"
-        android:textSize="26dp" />
+        android:layout_below="@+id/game_summary"
+        android:layout_toLeftOf="@+id/ScoreButton"
+        android:layout_marginTop="40dp"
+        android:text="My Team"
+        android:textColor="#000000"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/myTeamName2"
@@ -104,30 +48,6 @@
         android:textColor="#000000"
         android:textSize="24dp" />
 
-    <TextView
-        android:id="@+id/quarterNumber"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:textSize="18dp"
-        android:textColor="#000000" />
-
-
-    <TextView
-        android:id="@+id/myTeamName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/horizontal_bar"
-        android:layout_alignStart="@+id/horizontal_bar"
-        android:layout_below="@+id/quarterNumber"
-        android:layout_marginTop="40dp"
-        android:text="My Team"
-        android:textColor="#000000"
-        android:textSize="24dp" />
-
-
     <View
         android:layout_width="340dp"
         android:layout_height="1dp"
@@ -136,72 +56,79 @@
         android:background="#816D6C6C"
         android:id="@+id/horizontal_bar"/>
 
-
+    <!-- point -->
     <TextView
         android:id="@+id/ScoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/myTeamName"
         android:layout_marginTop="39dp"
         android:text="Points:"
-        android:textSize="26dp" />
-
-
-    <TextView
-        android:id="@+id/scoreButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/myTeamName"
-        android:layout_marginTop="39dp"
-        android:text="Points:"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/ReboundButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/opposingTeamMisses"
-        android:layout_marginTop="35dp"
-        android:text="Rebounds:"
-        android:textSize="26dp" />
-
-
-    <TextView
-        android:id="@+id/FoulButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/turnoverButton"
-        android:layout_alignStart="@+id/turnoverButton"
-        android:layout_below="@+id/opposingTeamRebounds"
-        android:layout_marginTop="54dp"
-        android:text="Fouls:"
-        android:textSize="26dp" />
-
-    <TextView
-        android:id="@+id/TurnoverButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/foulButton"
-        android:layout_alignStart="@+id/foulButton"
-        android:layout_below="@+id/FoulButton"
-        android:layout_marginTop="61dp"
-        android:text="Turnovers:"
         android:textSize="26dp" />
 
     <TextView
         android:id="@+id/myTeamPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ScoreButton"
-        android:layout_alignBottom="@+id/ScoreButton"
-        android:layout_toEndOf="@+id/ScoreButton"
-        android:layout_toRightOf="@+id/ScoreButton"
+        android:layout_below="@+id/ScoreButton"
+        android:layout_alignParentLeft="true"
+        android:text="@string/zero"
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/opposingTeamPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ScoreButton"
+        android:layout_alignParentRight="true"
+        android:text="@string/zero"
+        android:textSize="26dp" />
+
+    <!-- miss -->
+    <TextView
+        android:id="@+id/MissButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTeamPoints"
+        android:layout_centerHorizontal="true"
+        android:textSize="26dp"
+        android:text="Misses:" />
+
+    <TextView
+        android:id="@+id/myTeamMisses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MissButton"
+        android:layout_alignParentLeft="true"
+        android:text="@string/zero"
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/opposingMisses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MissButton"
+        android:layout_alignParentRight="true"
+        android:text="@string/zero"
+        android:textSize="26dp" />
+
+    <!-- rebound -->
+    <TextView
+        android:id="@+id/ReboundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTeamMisses"
+        android:layout_centerHorizontal="true"
+        android:text="Rebounds:"
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/myTeamRebounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ReboundButton"
+        android:layout_alignParentLeft="true"
         android:text="@string/zero"
         android:textSize="26dp" />
 
@@ -209,32 +136,27 @@
         android:id="@+id/opposingTeamRebounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reboundButton"
-        android:layout_alignBottom="@+id/reboundButton"
-        android:layout_toEndOf="@+id/reboundButton"
-        android:layout_toRightOf="@+id/reboundButton"
+        android:layout_below="@+id/ReboundButton"
+        android:layout_alignParentRight="true"
         android:text="@string/zero"
         android:textSize="26dp" />
 
+    <!-- foul -->
     <TextView
-        android:id="@+id/myTeamRebounds"
+        android:id="@+id/FoulButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ReboundButton"
-        android:layout_alignBottom="@+id/ReboundButton"
-        android:layout_toEndOf="@+id/TurnoverButton"
-        android:layout_toRightOf="@+id/TurnoverButton"
-        android:text="@string/zero"
+        android:layout_below="@+id/myTeamRebounds"
+        android:layout_centerHorizontal="true"
+        android:text="Fouls:"
         android:textSize="26dp" />
 
     <TextView
         android:id="@+id/myTeamFouls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/foulButton"
-        android:layout_alignBottom="@+id/foulButton"
-        android:layout_toEndOf="@+id/foulButton"
-        android:layout_toRightOf="@+id/foulButton"
+        android:layout_below="@+id/FoulButton"
+        android:layout_alignParentLeft="true"
         android:text="@string/zero"
         android:textSize="26dp" />
 
@@ -242,54 +164,37 @@
         android:id="@+id/opposingTeamFouls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/FoulButton"
-        android:layout_alignBottom="@+id/FoulButton"
-        android:layout_toEndOf="@+id/scoreButton"
-        android:layout_toRightOf="@+id/scoreButton"
+        android:layout_below="@+id/FoulButton"
+        android:layout_alignParentRight="true"
         android:text="@string/zero"
+        android:textSize="26dp" />
+
+    <!-- turnover -->
+    <TextView
+        android:id="@+id/TurnoverButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTeamFouls"
+        android:layout_centerHorizontal="true"
+        android:text="Turnovers:"
         android:textSize="26dp" />
 
     <TextView
         android:id="@+id/myTeamTurnovers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TurnoverButton"
-        android:layout_alignBottom="@+id/TurnoverButton"
-        android:layout_toEndOf="@+id/TurnoverButton"
-        android:layout_toRightOf="@+id/TurnoverButton"
+        android:layout_below="@+id/TurnoverButton"
+        android:layout_alignParentLeft="true"
         android:text="@string/zero"
         android:textSize="26dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/opposingTeamTurnovers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/myTeamName2"
-        android:layout_centerHorizontal="true"
-        android:text="Game Summary"
-        android:textSize="35dp" />
-
-    <TextView
-        android:id="@+id/opposingTeamMisses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView6"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_alignLeft="@+id/myTeamName2"
-        android:layout_alignStart="@+id/myTeamName2"
-        android:textSize="26dp"
-        android:text="Misses:" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/ScoreButton"
-        android:layout_marginTop="24dp"
-        android:textSize="26dp"
-        android:text="Misses:" />
-
+        android:layout_below="@+id/TurnoverButton"
+        android:layout_alignParentRight="true"
+        android:text="@string/zero"
+        android:textSize="26dp" />
 
 </RelativeLayout>
