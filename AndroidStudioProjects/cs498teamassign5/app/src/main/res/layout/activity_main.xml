@@ -147,7 +147,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/horizontal_bar"
         android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/TurnoverButton"
+        android:layout_alignRight="@+id/TurnoverButton"
         android:background="@drawable/roundbutton_main"
+        android:textSize="16sp"
         android:text="@string/score" />
 
     <Button
@@ -156,8 +159,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ScoreButton"
         android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/TurnoverButton"
+        android:layout_alignRight="@+id/TurnoverButton"
         android:background="@drawable/roundbutton_red"
         android:layout_marginTop="18dp"
+        android:textSize="16sp"
         android:text="@string/miss" />
 
     <Button
@@ -166,8 +172,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/MissButton"
         android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/TurnoverButton"
+        android:layout_alignRight="@+id/TurnoverButton"
         android:background="@drawable/roundbutton_main"
         android:layout_marginTop="18dp"
+        android:textSize="16sp"
         android:text="@string/rebound" />
 
     <Button
@@ -176,18 +185,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ReboundButton"
         android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/TurnoverButton"
+        android:layout_alignRight="@+id/TurnoverButton"
         android:background="@drawable/roundbutton_main"
         android:layout_marginTop="18dp"
+        android:textSize="16sp"
         android:text="@string/foul" />
 
     <Button
         android:id="@+id/TurnoverButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:layout_below="@+id/FoulButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_main"
         android:layout_marginTop="18dp"
+        android:textSize="16sp"
         android:text="@string/turnover" />
 
     <Button
@@ -201,6 +215,7 @@
         android:background="#abccba"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
+        android:textSize="16sp"
         android:text="@string/PlayerStats" />
 
     <!--this is the left vertical grey bar
