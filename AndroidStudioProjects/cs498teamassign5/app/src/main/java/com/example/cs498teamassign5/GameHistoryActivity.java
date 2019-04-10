@@ -23,9 +23,9 @@ import java.util.List;
 public class GameHistoryActivity extends Activity implements View.OnTouchListener {
     private static final int MAIN_ACTIVITY_REQUEST = 1;
     private GameInfo gameInfo;
-    private String myTeamName;
-    private String opposeTeamName;
-    private String playerName;
+    private String myTeamName = "My Team";
+    private String opposeTeamName = "Opposing Team";
+    private String playerName = "My Player";
     private int myTeamScore;
     private int opposingTeamScore;
     private int myTeamRebound;
@@ -77,6 +77,15 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
         myTeamName = (String) gameHistInfo.getString("myTeamName");
         opposeTeamName = (String) gameHistInfo.getString("opposingTeamName");
         playerName = (String) gameHistInfo.getString("playerName");
+        if(myTeamName == null || myTeamName.equals("")){
+            myTeamName = "Your Team";
+        }
+        if(opposeTeamName == null || opposeTeamName.equals("")){
+            opposeTeamName = "Opposing Team";
+        }
+        if(playerName == null ||playerName.equals("")){
+            playerName = "Your Player";
+        }
 
         finishButton = (ImageView) findViewById(R.id.checkmarkImageView);
         finishButton.setOnTouchListener(this);
