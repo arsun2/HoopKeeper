@@ -133,6 +133,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             gameSummaryBundle.putSerializable("gameInfo", gameInfo);
             gameSummaryBundle.putString("myTeamName", myTeamName);
             gameSummaryBundle.putString("opposingTeamName", opposingTeamName);
+            gameSummaryBundle.putString("playerName", myPlayerName);
             //intent.putExtra("gameInfo", gameInfo);
             intent.putExtras(gameSummaryBundle);
             startActivity(intent);
@@ -150,10 +151,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         Intent intent = new Intent(this, SelectTeamActivity.class);
         Bundle selectBundle = new Bundle();
-        selectBundle.putSerializable("gameInfo", gameInfo);
+        selectBundle.putSerializable("ans", info);
         selectBundle.putString("playerName", myPlayerName);
         intent.putExtras(selectBundle);
         startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
+        //startActivity(intent);
+        return;
     }
 
     public void onActivityResult(int activityCode, int resultCode, Intent intent) {
