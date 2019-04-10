@@ -157,7 +157,7 @@ public class QuarterlyGameLog implements Serializable {
     public int myTeamRebound(){
         int sum = 0;
         for(GameEvent gameEvent : myTeamGameLog) {
-            if(gameEvent.player == Player.MyTeam && gameEvent.stat == Stat.rebound){
+            if(gameEvent.stat == Stat.rebound){
                 sum++;
             }
         }
