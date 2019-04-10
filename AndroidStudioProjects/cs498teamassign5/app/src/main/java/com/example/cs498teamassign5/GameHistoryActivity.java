@@ -45,10 +45,17 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
     }
 
     public void updatePlayerStats(){
+        
         myTeamScore = gameInfo.myTeamScore();
-//        TextView playerPoints = (TextView) findViewById(R.id.myTeamPoints);
-//        playerPoints.setText(Integer.toString(myTeamScore));
-//
+        TextView playerPoints = (TextView) findViewById(R.id.myTeamScore);
+        playerPoints.setText(Integer.toString(myTeamScore));
+
+        opposingTeamScore = gameInfo.opposingTeamScore();
+        TextView opposingTeamPoints = (TextView) findViewById(R.id.opposeTeamScore);
+        opposingTeamPoints.setText(Integer.toString(opposingTeamScore));
+
+
+
 //        myTeamMiss = gameInfo.myTeamMiss();
 //        TextView playerMisses = (TextView) findViewById(R.id.myTeamMisses);
 //        playerMisses.setText(Integer.toString(myTeamMiss));
@@ -66,9 +73,7 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
 //        playerTurnovers.setText(Integer.toString(myTeamTurnover));
 //
 //
-//        opposingTeamScore = gameInfo.opposingTeamScore();
-//        TextView opposingTeamPoints = (TextView) findViewById(R.id.opposingTeamPoints);
-//        opposingTeamPoints.setText(Integer.toString(opposingTeamScore));
+
 //
 //        opposingTeamMiss = gameInfo.opposingTeamMiss();
 //        TextView opposingTeamMisses = (TextView) findViewById(R.id.opposingMisses);
