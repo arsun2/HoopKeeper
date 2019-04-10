@@ -58,9 +58,15 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
     private double othersInTeamScaleFoul;
     private double playerScaleTurnover;
     private double othersInTeamScaleTurnover;
+<<<<<<< HEAD
     
     private static final double barWidth = 160.0;
     
+=======
+
+    private static final double barWidth = 160.0;
+
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
 
     @Override
@@ -83,6 +89,7 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
     }
 
     public void updatePlayerStats(){
+<<<<<<< HEAD
 
         // Team Name and Player Name
         TextView myTeamLabel = (TextView) findViewById(R.id.myTeamLabel);
@@ -100,6 +107,25 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         TextView playerALabel = (TextView) findViewById(R.id.playerALabel);
         playerALabel.setText(playerName);
 
+=======
+
+        // Team Name and Player Name
+        TextView myTeamLabel = (TextView) findViewById(R.id.myTeamLabel);
+        myTeamLabel.setText(myTeamName);
+
+        TextView opposeTeamLabel = (TextView) findViewById(R.id.opposeTeamLabel);
+        opposeTeamLabel.setText(opposeTeamName);
+
+        TextView teamALabel = (TextView) findViewById(R.id.teamALabel);
+        teamALabel.setText(myTeamName);
+
+        TextView teamBLabel = (TextView) findViewById(R.id.teamBLabel);
+        teamBLabel.setText(opposeTeamName);
+
+        TextView playerALabel = (TextView) findViewById(R.id.playerALabel);
+        playerALabel.setText(playerName);
+
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
         // Game Score
         myTeamScore = gameInfo.myTeamScore();
         TextView playerPoints = (TextView) findViewById(R.id.myTeamScore);
@@ -176,6 +202,7 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         // detail Bar
         myTeamScaleScore = ((double) (myTeamScore) / (double) (myTeamScore + opposingTeamScore)) * barWidth;
         setGraphBar(R.id.ourTeamPointBar, myTeamScaleScore);
+<<<<<<< HEAD
     }
     
     private void setGraphBar(int viewID, double newWidth) {
@@ -184,6 +211,16 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         layoutParams.width = (int) newWidth;
         view.setLayoutParams(layoutParams);
     }
+=======
+    }
+
+    private void setGraphBar(int viewID, double newWidth) {
+        View view = findViewById(viewID);
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.width = (int) newWidth;
+        view.setLayoutParams(layoutParams);
+    }
+>>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
 
 }

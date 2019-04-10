@@ -67,6 +67,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             newString = gameEvent.stat.toString();
         }
         holder.textView.setText(newString);
+        // force the font size to be 12 at recycler view
+        holder.textView.setTextSize(12);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
