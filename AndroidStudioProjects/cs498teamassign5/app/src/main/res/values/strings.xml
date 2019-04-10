@@ -4,23 +4,29 @@
 
     //for game modification view
     <string name="team_1">team 1</string>
-    <string name="my_player"> My Player </string>
     <string name="left_arrow">Left Arrow</string>
     <string name="right_arrow">Right Arrow</string>
     <string name="team_2">team 2</string>
     <string name="vs">:</string>
-    <string name="score">Score</string>
-    <string name="foul">Foul</string>
-    <string name="assist">Assist</string>
-    <string name="block">Block</string>
-    <string name="rebound">Rebound</string>
-    <string name="illegal">Illegal</string>
-    <string name="turnover">Turnover</string>
-    <string name="miss">Miss</string>
     <string name="zero">0</string>
     <string name="PlayerStats">My Player Stats</string>
     <string name="title_activity_player_stat">PlayerStat</string>
     <string name="title_activity_game_history">GameHistoryActivity</string>
+
+    <!-- buttons for activity_main -->
+    <string name="score">Score</string>
+    <string name="miss">Miss</string>
+    <string name="rebound">Rebound</string>
+    <string name="foul">Foul</string>
+    <string name="turnover">Turnover</string>
+
+    <!-- for activity_select_team -->
+    <string name="team_selection_text">Select Player:</string>
+    <string name="my_team">My Team</string>
+    <string name="opposing_team">Opposing Team</string>
+    <string name="my_player"> My Player </string>
+    <string name="other_team">Other Player</string>
+    <string name="opposing_player">Opposing Player</string>
 
     <!-- for activity_add_score -->
     <string name="points_scored">Points:</string>
