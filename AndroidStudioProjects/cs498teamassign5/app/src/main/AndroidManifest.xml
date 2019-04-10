@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ChooseHistoryActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SelectTeamActivity" />
+        <activity android:name=".SelectScoreActivity" />
+        <activity android:name=".GameHistoryActivity" />
+        <activity android:name=".CreateGameActivity" />
+        <activity android:name=".PlayerStat" />
+        <activity android:name=".HomePageActivity">
+            MainActivity
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SelectTeamActivity">
+
+    <TextView
+        android:id="@+id/centerTopPlaceholder"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/centerLeftPlaceholder"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <Button
+        android:id="@+id/myPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2.5dp"
+        android:layout_marginBottom="2.5dp"
+        android:layout_alignRight="@+id/centerTopPlaceholder"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/centerLeftPlaceholder"
+        android:background="@drawable/button_main"
+        android:textColor="#ffffff"
+        android:text="@string/my_player" />
+
+    <Button
+        android:id="@+id/otherTeamMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2.5dp"
+        android:layout_marginTop="2.5dp"
+        android:layout_alignRight="@+id/centerTopPlaceholder"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/centerLeftPlaceholder"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_main"
+        android:textColor="#ffffff"
+        android:text="@string/other_team" />
+
+    <Button
+        android:id="@+id/opposingPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2.5dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/centerTopPlaceholder"
+        android:background="@drawable/button_red"
+        android:textColor="#ffffff"
+        android:text="@string/opposing_player" />
+
+</RelativeLayout>
