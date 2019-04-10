@@ -12,8 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class CreateGameActivity extends Activity implements View.OnClickListener {
@@ -45,6 +48,11 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
         myTeamText = (EditText) findViewById(R.id.MyTeamText);
         opposingTeamText = (EditText) findViewById(R.id.OpposingText);
 
+        gameInfo = new GameInfo();
+        Date date = gameInfo.calendar.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        String newString = dateFormat.format(date);
+        timeText.setText(newString);
 
         StartButton.setOnClickListener(this);
         /*
@@ -64,7 +72,6 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
             opposingTeam = opposingTeamText.getText().toString();
 
             Bundle toPass = new Bundle();
-            GameInfo gameInfo = new GameInfo();
             toPass.putSerializable("gameInfo", gameInfo);
             toPass.putString("playerName", myPlayer);
             toPass.putString("myTeamName", myTeam);

@@ -40,13 +40,13 @@
         android:layout_alignLeft="@+id/quarterNumber"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="-62dp"
-        android:layout_marginLeft="-62dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginRight="93dp"
+        android:layout_marginStart="-64dp"
+        android:layout_marginLeft="-64dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="111dp"
+        android:layout_marginRight="111dp"
         android:inputType="textPersonName"
-        android:text="Location"
+        android:text="ARC"
         android:textSize="20sp" />
 
     <ImageView
