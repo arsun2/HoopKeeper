@@ -24,6 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button PlayerStatButton;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
+    private Button CompleteButton;
     private QuarterlyGameLog quarterlyGameLog;
     private int myTeamScore = 0;
     private int opposingTeamScore = 0;
@@ -59,6 +60,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PrevGameButton = (ImageButton) findViewById(R.id.PrevGameButton);
         NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
+        CompleteButton = (Button) findViewById(R.id.completeButton);
 
         PointButton.setOnClickListener(this);
         MissButton.setOnClickListener(this);
@@ -68,6 +70,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PrevGameButton.setOnClickListener(this);
         NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
+        CompleteButton.setOnClickListener(this);
 
     }
 
@@ -94,6 +97,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return;
         } else if (ClickId == R.id.PlayerButton){
             Intent intent = new Intent(this, PlayerStat.class);
+            intent.putExtra("gameInfo", gameInfo);
+            startActivity(intent);
+            return;
+        } else if (ClickId == R.id.completeButton){
+            Intent intent = new Intent(this, GameHistoryActivity.class);
             intent.putExtra("gameInfo", gameInfo);
             startActivity(intent);
             return;
