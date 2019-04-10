@@ -62,6 +62,17 @@
         android:text="Opposing Team" />
 
     <TextView
+        android:id="@+id/vsMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:layout_below="@+id/quarterNumber"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:textColor="#E84A27"
+        android:text="@string/vs" />
+
+    <TextView
         android:id="@+id/myTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

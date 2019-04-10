@@ -8,6 +8,7 @@
     <string name="left_arrow">Left Arrow</string>
     <string name="right_arrow">Right Arrow</string>
     <string name="team_2">team 2</string>
+    <string name="vs">:</string>
     <string name="score">Score</string>
     <string name="foul">Foul</string>
     <string name="assist">Assist</string>
@@ -20,5 +21,11 @@
     <string name="PlayerStats">My Player Stats</string>
     <string name="title_activity_player_stat">PlayerStat</string>
     <string name="title_activity_game_history">GameHistoryActivity</string>
+
+    <!-- for activity_add_score -->
+    <string name="points_scored">Points:</string>
+    <string name="one_point">1</string>
+    <string name="two_point">2</string>
+    <string name="three_point">3</string>
 
 </resources>
