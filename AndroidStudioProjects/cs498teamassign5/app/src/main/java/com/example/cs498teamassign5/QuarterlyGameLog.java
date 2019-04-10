@@ -47,6 +47,7 @@ public class QuarterlyGameLog implements Serializable {
         return sum;
     }
 
+
     public int myPlayerScore(){
         int sum = 0;
         for(GameEvent gameEvent : myTeamGameLog){
@@ -83,10 +84,60 @@ public class QuarterlyGameLog implements Serializable {
         return sum;
     }
 
+    public int opposingTeamTurnover(){
+        int sum = 0;
+        for(GameEvent gameEvent : opposingTeamGameLog) {
+            if(gameEvent.stat == Stat.turnover){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int opposingTeamFoul(){
+        int sum = 0;
+        for(GameEvent gameEvent : opposingTeamGameLog) {
+            if(gameEvent.stat == Stat.foul){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int opposingTeamRebound(){
+        int sum = 0;
+        for(GameEvent gameEvent : opposingTeamGameLog) {
+            if(gameEvent.stat == Stat.rebound){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int opposingTeamMiss(){
+        int sum = 0;
+        for(GameEvent gameEvent : opposingTeamGameLog) {
+            if(gameEvent.miss){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
     public int myPlayerTurnover(){
         int sum = 0;
         for(GameEvent gameEvent : myTeamGameLog) {
             if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.turnover){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myTeamTurnover(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.stat == Stat.turnover){
                 sum++;
             }
         }
@@ -103,10 +154,40 @@ public class QuarterlyGameLog implements Serializable {
         return sum;
     }
 
+    public int myTeamRebound(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.player == Player.MyTeam && gameEvent.stat == Stat.rebound){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myTeamMiss(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.miss){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
     public int myPlayerFoul(){
         int sum = 0;
         for(GameEvent gameEvent : myTeamGameLog) {
             if(gameEvent.player == Player.MyPlayer && gameEvent.stat == Stat.foul){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int myTeamFoul(){
+        int sum = 0;
+        for(GameEvent gameEvent : myTeamGameLog) {
+            if(gameEvent.stat == Stat.foul){
                 sum++;
             }
         }
