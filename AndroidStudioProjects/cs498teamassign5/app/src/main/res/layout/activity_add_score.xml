@@ -25,6 +25,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="9dp"
         android:background="@drawable/circle"
+        android:textSize="30dp"
         android:text="@string/one_point" />
 
     <Button
@@ -35,6 +36,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="9dp"
         android:background="@drawable/circle"
+        android:textSize="30dp"
         android:text="@string/two_point" />
 
     <Button
@@ -45,6 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="9dp"
         android:background="@drawable/circle"
+        android:textSize="30dp"
         android:text="@string/three_point" />
 
 </RelativeLayout>
