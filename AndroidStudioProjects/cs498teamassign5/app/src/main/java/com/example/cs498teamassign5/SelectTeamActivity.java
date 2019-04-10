@@ -38,10 +38,10 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
 
     public void onClick(View v){
         /*Codes are
-        * "MyPlayer:" for My Player
-        * "OpposingTeam:" for Opposing Team
-        * "MyTeam:" For my team, but not my player
-        */
+         * "MyPlayer:" for My Player
+         * "OpposingTeam:" for Opposing Team
+         * "MyTeam:" For my team, but not my player
+         */
         boolean needScore = info.equals("Score:") || info.equals("Miss:");
         if (v.getId() == R.id.myPlayer) {
             info += "MyPlayer:";
