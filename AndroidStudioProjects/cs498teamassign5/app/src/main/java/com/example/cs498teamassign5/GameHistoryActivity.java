@@ -76,6 +76,53 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         int opposingTeamTurnover = gameInfo.opposingTeamTurnover();
         TextView opposingTeamTurnovers = (TextView) findViewById(R.id.opposingTeamTurnovers);
         opposingTeamTurnovers.setText(Integer.toString(opposingTeamTurnover));
+=======
+        
+        myTeamScore = gameInfo.myTeamScore();
+        TextView playerPoints = (TextView) findViewById(R.id.myTeamScore);
+        playerPoints.setText(Integer.toString(myTeamScore));
+
+        opposingTeamScore = gameInfo.opposingTeamScore();
+        TextView opposingTeamPoints = (TextView) findViewById(R.id.opposeTeamScore);
+        opposingTeamPoints.setText(Integer.toString(opposingTeamScore));
+
+
+
+//        myTeamMiss = gameInfo.myTeamMiss();
+//        TextView playerMisses = (TextView) findViewById(R.id.myTeamMisses);
+//        playerMisses.setText(Integer.toString(myTeamMiss));
+//
+//        myTeamRebound = gameInfo.myTeamRebound();
+//        TextView playerRebs = (TextView) findViewById(R.id.myTeamRebounds);
+//        playerRebs.setText(Integer.toString(myTeamRebound));
+//
+//        myTeamFoul = gameInfo.myTeamFoul();
+//        TextView playerFouls = (TextView) findViewById(R.id.myTeamFouls);
+//        playerFouls.setText(Integer.toString(myTeamFoul));
+//
+//        myTeamTurnover = gameInfo.myTeamTurnover();
+//        TextView playerTurnovers = (TextView) findViewById(R.id.myTeamTurnovers);
+//        playerTurnovers.setText(Integer.toString(myTeamTurnover));
+//
+//
+
+//
+//        opposingTeamMiss = gameInfo.opposingTeamMiss();
+//        TextView opposingTeamMisses = (TextView) findViewById(R.id.opposingMisses);
+//        opposingTeamMisses.setText(Integer.toString(opposingTeamMiss));
+//
+//        opposingTeamRebound = gameInfo.opposingTeamRebound();
+//        TextView opposingTeamRebs = (TextView) findViewById(R.id.opposingTeamRebounds);
+//        opposingTeamRebs.setText(Integer.toString(opposingTeamRebound));
+//
+//        opposingTeamFoul = gameInfo.opposingTeamFoul();
+//        TextView opposingTeamFouls = (TextView) findViewById(R.id.opposingTeamFouls);
+//        opposingTeamFouls.setText(Integer.toString(opposingTeamFoul));
+//
+//        opposingTeamTurnover = gameInfo.opposingTeamTurnover();
+//        TextView opposingTeamTurnovers = (TextView) findViewById(R.id.opposingTeamTurnovers);
+//        opposingTeamTurnovers.setText(Integer.toString(opposingTeamTurnover));
+>>>>>>> GameButtonInteraction
 
     }
 }
