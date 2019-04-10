@@ -7,7 +7,6 @@
     android:paddingTop="5dp">
 
     <TextView
-<<<<<<< HEAD
         android:id="@+id/summaryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,15 +14,6 @@
         android:layout_marginTop="3dp"
         android:text="Game Summary"
         android:textSize="35dp" />
-=======
-    android:id="@+id/summaryTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="3dp"
-    android:text="Game Summary"
-    android:textSize="35dp" />
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
     <ImageView
         android:id="@+id/checkmarkImageView"
@@ -155,10 +145,7 @@
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
         android:textColor="#39a197" />
-<<<<<<< HEAD
-=======
 
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
     <TextView
         android:id="@+id/teamBLabel"
@@ -203,13 +190,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/pointLabel1"
+        android:layout_toLeftOf="@id/ourTeamPointBar"
         android:layout_alignTop="@id/pointLabel1"
-        android:layout_marginRight="15dp"
         android:textSize="18sp"
+        android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposeTeamPointBar"
@@ -226,13 +213,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/pointLabel1"
+        android:layout_toRightOf="@id/opposeTeamPointBar"
         android:layout_alignTop="@id/pointLabel1"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/reboundLabel1"
@@ -262,13 +249,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/reboundLabel1"
+        android:layout_toLeftOf="@id/ourTeamReboundBar"
         android:layout_alignTop="@id/reboundLabel1"
-        android:layout_marginRight="15dp"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposeTeamReboundBar"
@@ -285,13 +272,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/reboundLabel1"
+        android:layout_toRightOf="@id/opposeTeamReboundBar"
         android:layout_alignTop="@id/reboundLabel1"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/foulLabel1"
@@ -306,11 +293,6 @@
         android:textStyle="normal"
         android:textColor="#000000" />
 
-<<<<<<< HEAD
-
-=======
-    <!-- point -->
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
     <View
         android:id="@+id/ourTeamFoulBar"
         android:layout_width="100dp"
@@ -326,13 +308,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/foulLabel1"
+        android:layout_toLeftOf="@id/ourTeamFoulBar"
         android:layout_alignTop="@id/foulLabel1"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposeTeamFoulBar"
@@ -349,13 +331,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/foulLabel1"
+        android:layout_toRightOf="@id/opposeTeamFoulBar"
         android:layout_alignTop="@id/foulLabel1"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/turnoverLabel1"
@@ -385,13 +367,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/turnoverLabel1"
+        android:layout_toLeftOf="@id/ourTeamTurnoverBar"
         android:layout_alignTop="@id/turnoverLabel1"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposeTeamTurnoverBar"
@@ -408,13 +390,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/turnoverLabel1"
+        android:layout_toRightOf="@id/opposeTeamTurnoverBar"
         android:layout_alignTop="@id/turnoverLabel1"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000
+" />
 
 
     <TextView
@@ -458,15 +441,15 @@
         android:id="@+id/playerBLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player B"
         android:layout_below="@id/seperateLine2"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="8dp"
-        android:textSize="25sp"
+        android:layout_marginRight="10dp"
         android:fontFamily="sans-serif-medium"
-        android:textStyle="normal"
-        android:textColor="#39a197" />
+        android:text="Others"
+        android:textColor="#39a197"
+        android:textSize="25sp"
+        android:textStyle="normal" />
 
 
     <TextView
@@ -497,13 +480,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/pointLabel2"
+        android:layout_toLeftOf="@id/ourPlayerPointBar"
         android:layout_alignTop="@id/pointLabel2"
-        android:layout_marginRight="15dp"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposePlayerPointBar"
@@ -520,13 +503,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/pointLabel2"
+        android:layout_toRightOf="@id/opposePlayerPointBar"
         android:layout_alignTop="@id/pointLabel2"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/reboundLabel2"
@@ -550,23 +533,19 @@
         android:layout_marginRight="10dp"
         android:layout_below="@id/teamALabel"
         android:background="#39a197" />
-
-<<<<<<< HEAD
-=======
-    <!-- turnover -->
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
+    
     <TextView
         android:id="@+id/ourPlayerReboundLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/reboundLabel2"
+        android:layout_toLeftOf="@id/ourPlayerReboundBar"
         android:layout_alignTop="@id/reboundLabel2"
-        android:layout_marginRight="15dp"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposePlayerReboundBar"
@@ -583,13 +562,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/reboundLabel2"
+        android:layout_toRightOf="@id/opposePlayerReboundBar"
         android:layout_alignTop="@id/reboundLabel2"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/foulLabel2"
@@ -618,14 +597,14 @@
         android:id="@+id/ourPlayerFoulLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10"
-        android:layout_toLeftOf="@id/foulLabel2"
         android:layout_alignTop="@id/foulLabel2"
-        android:layout_marginRight="20dp"
-        android:textSize="18sp"
+        android:layout_toLeftOf="@id/ourPlayerFoulBar"
+        android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-medium"
-        android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:text="10"
+        android:textColor="#39a197"
+        android:textSize="18sp"
+        android:textStyle="normal" />
 
     <View
         android:id="@+id/opposePlayerFoulBar"
@@ -642,13 +621,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/foulLabel2"
+        android:layout_toRightOf="@id/opposePlayerFoulBar"
         android:layout_alignTop="@id/foulLabel2"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
 
     <TextView
@@ -679,13 +658,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toLeftOf="@id/turnoverLabel2"
+        android:layout_toLeftOf="@id/ourPlayerTurnoverBar"
         android:layout_alignTop="@id/turnoverLabel2"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#39a197" />
 
     <View
         android:id="@+id/opposePlayerTurnoverBar"
@@ -702,13 +681,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:layout_toRightOf="@id/turnoverLabel2"
+        android:layout_toRightOf="@id/opposePlayerTurnoverBar"
         android:layout_alignTop="@id/turnoverLabel2"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/opposingTeamTurnovers"
