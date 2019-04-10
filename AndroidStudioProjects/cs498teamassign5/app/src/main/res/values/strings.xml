@@ -1,6 +1,8 @@
 <resources>
+    //home page
     <string name="app_name">cs498teamassign5</string>
     <string name="new_game">New Game</string>
+    <string name="history">History Game</string>
 
     //for game modification view
     <string name="team_1">team 1</string>
