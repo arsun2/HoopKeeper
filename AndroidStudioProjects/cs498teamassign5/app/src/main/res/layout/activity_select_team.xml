@@ -33,6 +33,7 @@
         android:layout_alignBottom="@+id/centerLeftPlaceholder"
         android:background="@drawable/button_main"
         android:textColor="#333333"
+        android:textSize="18dp"
         android:text="@string/my_player" />
 
     <Button
@@ -47,6 +48,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/button_main"
         android:textColor="#333333"
+        android:textSize="18dp"
         android:text="@string/other_team" />
 
     <Button
@@ -59,6 +61,7 @@
         android:layout_alignLeft="@+id/centerTopPlaceholder"
         android:background="#595959"
         android:textColor="#ffffff"
+        android:textSize="18dp"
         android:text="@string/opposing_player" />
 
 </RelativeLayout>
