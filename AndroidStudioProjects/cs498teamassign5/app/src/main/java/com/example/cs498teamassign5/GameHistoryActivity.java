@@ -63,7 +63,6 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
     private double othersInTeamScaleTurnover;
 
     private static final double barWidth = 160.0;
-    
 
 
 
@@ -102,6 +101,7 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
     public void updatePlayerStats(){
 
 
+
         // Team Name and Player Name
         TextView myTeamLabel = (TextView) findViewById(R.id.myTeamLabel);
         myTeamLabel.setText(myTeamName);
@@ -117,6 +117,7 @@ public class GameHistoryActivity extends Activity implements View.OnTouchListene
 
         TextView playerALabel = (TextView) findViewById(R.id.playerALabel);
         playerALabel.setText(playerName);
+
 
         // Game Score
         myTeamScore = gameInfo.myTeamScore();

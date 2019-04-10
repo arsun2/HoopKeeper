@@ -533,7 +533,7 @@
         android:layout_marginRight="10dp"
         android:layout_below="@id/teamALabel"
         android:background="#39a197" />
-    
+
     <TextView
         android:id="@+id/ourPlayerReboundLabel"
         android:layout_width="wrap_content"

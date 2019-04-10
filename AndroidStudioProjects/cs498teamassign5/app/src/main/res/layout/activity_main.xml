@@ -43,63 +43,99 @@
         android:contentDescription="@string/right_arrow"
         android:tint="@android:color/darker_gray" />
 
+    <ImageView
+        android:id="@+id/scoreImageView"
+        android:layout_width="fill_parent"
+        android:layout_height="180dp"
+        android:layout_below="@id/finishButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:src="@drawable/rectangle" />
+
     <TextView
         android:id="@+id/myTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/PrevGameButton"
-        android:layout_alignRight="@+id/PrevGameButton"
-        android:textSize="18dp"
-        android:textColor="#13294b"
-        android:text="My Team" />
+        android:layout_alignTop="@id/scoreImageView"
+        android:layout_marginTop="25dp"
+        android:textSize="26sp"
+        android:layout_marginLeft="15dp"
+        android:text="My Team"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/opposingTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/NextGameButton"
-        android:layout_alignLeft="@+id/NextGameButton"
-        android:textSize="18dp"
-        android:textColor="#E84A27"
-        android:text="Opposing Team" />
+        android:layout_alignTop="@id/scoreImageView"
+        android:layout_alignRight="@id/scoreImageView"
+        android:layout_marginTop="25dp"
+        android:textSize="26sp"
+        android:layout_marginRight="15dp"
+        android:text="Oppose Team"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/vsMark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="18dp"
-        android:layout_below="@+id/quarterNumber"
-        android:layout_centerHorizontal="true"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:text="@string/vs" />
+        android:layout_alignTop="@id/scoreImageView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="55dp"
+        android:text=":"
+        android:textSize="60sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#ffffff"
+        android:shadowColor="#80000000"
+        android:shadowDy="5"
+        android:shadowRadius="20" />
 
     <TextView
         android:id="@+id/myTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/myTeamName"
-        android:layout_alignLeft="@+id/PrevGameButton"
-        android:textSize="25dp"
-        android:text="@string/zero"/>
+        android:layout_toLeftOf="@+id/vsMark"
+        android:layout_below="@id/myTeamName"
+        android:layout_marginRight="10dp"
+        android:text="50"
+        android:textSize="60sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#ffffff"
+        android:shadowColor="#80000000"
+        android:shadowDy="5"
+        android:shadowRadius="20"/>
 
     <TextView
         android:id="@+id/opposingTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/opposingTeamName"
-        android:layout_alignRight="@+id/NextGameButton"
-        android:textSize="25dp"
-        android:text="@string/zero"/>
+        android:layout_toRightOf="@id/vsMark"
+        android:layout_below="@id/myTeamName"
+        android:layout_marginLeft="10dp"
+        android:text="46"
+        android:textSize="60sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#ffffff"
+        android:shadowColor="#80000000"
+        android:shadowDy="5"
+        android:shadowRadius="20" />
 
     <View
         android:id="@+id/horizontal_bar"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="18dp"
-        android:layout_below="@+id/myTeamScore"
+        android:layout_below="@+id/scoreImageView"
         android:layout_centerHorizontal="true"
         android:background="#6C6C6C" />
 
@@ -166,7 +202,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:background="#13294b"
+        android:background="#abccba"
         android:textColor="#FFFFFF"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -196,24 +232,24 @@
         android:id="@+id/myTeam_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_below="@+id/horizontal_bar"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/myTeamName" />
+        android:layout_toLeftOf="@+id/ScoreButton" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/opposingTeam_recycler_view"
         android:scrollbars="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_below="@id/horizontal_bar"
         android:layout_alignParentRight="true"
-        android:layout_alignLeft="@+id/opposingTeamName"
+        android:layout_toRightOf="@+id/ScoreButton"
         android:textAlignment="textEnd"
         android:layout_gravity="end" />
 
@@ -237,4 +273,5 @@
         android:text="Home" />
 
 </RelativeLayout>
+
 
