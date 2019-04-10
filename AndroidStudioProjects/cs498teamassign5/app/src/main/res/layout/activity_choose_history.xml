@@ -8,9 +8,22 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/choose_team_recycler_view"
-        android:scrollbars="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="Game History"
+        android:textColor="#000000"
+        android:textSize="30dp" />
 
 </RelativeLayout>

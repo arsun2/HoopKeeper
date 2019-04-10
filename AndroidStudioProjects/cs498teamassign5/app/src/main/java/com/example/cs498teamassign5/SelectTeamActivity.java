@@ -13,6 +13,7 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
     public static final int SELECT_SCORE_ACTIVITY_REQUEST = 1;
     public static String SELECT_TEAM_RETURN_STRING = "SELECT_TEAM_RETURN_STRING";
     private String info = null;
+    private String playerName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,11 @@ public class SelectTeamActivity extends Activity implements View.OnClickListener
         OtherPlayerButton.setOnClickListener(this);
 
         Intent i = getIntent();
-        info = i.getStringExtra("ans");
+        Bundle bundle = i.getExtras();
+        info = bundle.getString("ans");
+        playerName = bundle.getString("playerName");
         System.out.println("Select string is: " + info);
+        TeamOneButton.setText(playerName);
     }
 
     public void onClick(View v){

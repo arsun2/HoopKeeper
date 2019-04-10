@@ -59,7 +59,8 @@ public class GameHistoryAdapter extends RecyclerView.Adapter<GameHistoryAdapter.
         Date date = gameInfo.calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String newString = dateFormat.format(date);
-        holder.textView.setText(newString);
+        String dateLabel = "Game Date: " + newString;
+        holder.textView.setText(dateLabel);
 
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override

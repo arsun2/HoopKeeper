@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private String myTeamName = "";
     private String opposingTeamName = "";
+    private String myPlayerName = "";
 
     private int myTeamScore = 0;
     private int opposingTeamScore = 0;
@@ -61,6 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         quarterlyGameLog = gameInfo.get(quarterNumber);
         myTeamName = (String)info.getSerializable("myTeamName");
         opposingTeamName = (String) info.getSerializable("opposingTeam");
+        myPlayerName = (String) info.getSerializable("playerName");
 
 
         //Adapters Initialization
@@ -120,7 +122,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else if (ClickId == R.id.PlayerButton){
             Intent intent = new Intent(this, PlayerStat.class);
             Bundle playerStatBundle = new Bundle();
-            intent.putExtra("gameInfo", gameInfo);
+            playerStatBundle.putSerializable("gameInfo", gameInfo);
+            playerStatBundle.putString("playerName", myPlayerName);
+            intent.putExtras(playerStatBundle);
             startActivity(intent);
             return;
         } else if (ClickId == R.id.completeButton){
@@ -145,7 +149,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return;
         }
         Intent intent = new Intent(this, SelectTeamActivity.class);
-        intent.putExtra("ans", info);
+        Bundle selectBundle = new Bundle();
+        selectBundle.putSerializable("gameInfo", gameInfo);
+        selectBundle.putString("playerName", myPlayerName);
+        intent.putExtras(selectBundle);
         startActivityForResult(intent, SELECT_TEAM_ACTIVITY_REQUEST);
     }
 
