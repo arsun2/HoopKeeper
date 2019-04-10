@@ -22,6 +22,7 @@ public class PlayerStat extends Activity implements View.OnClickListener {
     private int myPlayerRebound = 0;
     private int myPlayerFoul = 0;
     private int myPlayerTurnover = 0;
+    private String playerNameMy;
 
 
     @Override
@@ -30,7 +31,10 @@ public class PlayerStat extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_player_stat);
 
         Intent intent = getIntent();
-        gameInfo = (GameInfo) intent.getSerializableExtra("gameInfo");
+        Bundle bundle = intent.getExtras();
+        gameInfo = (GameInfo) bundle.getSerializable("gameInfo");
+        playerNameMy = (String) bundle.getSerializable("playerName");
+
         updatePlayerStats();
     }
 
@@ -54,5 +58,8 @@ public class PlayerStat extends Activity implements View.OnClickListener {
         myPlayerTurnover = gameInfo.myPlayerTurnover();
         TextView playerTurnovers = (TextView) findViewById(R.id.PlayerTurnovers);
         playerTurnovers.setText(Integer.toString(myPlayerTurnover));
+
+        TextView playerName = (TextView) findViewById(R.id.myTeamName);
+        playerName.setText(playerNameMy);
     }
 }
