@@ -21,46 +21,59 @@
         android:id="@+id/locationImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/location"
-        android:layout_alignTop="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
         android:layout_alignLeft="@+id/timeImage"
-        android:layout_alignRight="@+id/timeImage" />
+        android:layout_alignTop="@+id/editText"
+        android:layout_alignRight="@+id/timeImage"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="-3dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginBottom="3dp"
+        android:src="@drawable/location" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/quarterNumber"
+        android:layout_alignStart="@+id/quarterNumber"
         android:layout_alignLeft="@+id/quarterNumber"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignStart="@+id/quarterNumber"
-        android:layout_below="@+id/quarterNumber"
+        android:layout_marginStart="-62dp"
+        android:layout_marginLeft="-62dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:text="Location" />
+        android:text="Location"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/timeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/time"
         android:layout_alignTop="@+id/TimeText"
         android:layout_alignBottom="@+id/TimeText"
-        android:layout_toLeftOf="@+id/startButton" />
+        android:layout_marginTop="-3dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toLeftOf="@+id/startButton"
+        android:src="@drawable/time" />
 
     <EditText
         android:id="@+id/TimeText"
-        android:layout_width="wrap_content"
+        android:layout_width="178dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
         android:layout_below="@+id/editText"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="36dp"
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="45dp"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:text="Time" />
+        android:text="Time"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/playerImage"
@@ -76,63 +89,80 @@
         android:id="@+id/playerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/TimeText"
+        android:layout_alignStart="@+id/TimeText"
         android:layout_alignLeft="@+id/TimeText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignStart="@+id/TimeText"
-        android:layout_below="@+id/TimeText"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="36dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:text="Your Player" />
+        android:text="Your Player"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/teamImage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/basketball_jersey"
-        android:layout_alignTop="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
+        android:layout_height="64dp"
         android:layout_alignLeft="@+id/timeImage"
-        android:layout_alignRight="@+id/timeImage" />
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignRight="@+id/timeImage"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="-17dp"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-6dp"
+        android:src="@drawable/basketball_jersey" />
 
     <EditText
         android:id="@+id/MyTeamText"
-        android:layout_width="wrap_content"
+        android:layout_width="193dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TimeText"
+        android:layout_below="@+id/playerText"
         android:layout_alignStart="@+id/TimeText"
+        android:layout_alignLeft="@+id/TimeText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/playerText"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="-1dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:text="Your Team" />
+        android:text="Your Team"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyTeamText"
+        android:layout_marginLeft="-49dp"
+        android:layout_marginTop="23dp"
         android:layout_toRightOf="@+id/startButton"
         android:text="VS"
-        android:layout_marginTop="36dp"
         android:textSize="30sp" />
 
     <EditText
         android:id="@+id/OpposingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/MyTeamText"
         android:layout_alignLeft="@+id/MyTeamText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignStart="@+id/MyTeamText"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:text="Opposing Team" />
+        android:text="Opposing Team"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/startButton"

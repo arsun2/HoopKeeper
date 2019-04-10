@@ -7,9 +7,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GameHistoryActivity extends Activity implements View.OnClickListener {
+public class GameHistoryActivity extends Activity implements View.OnTouchListener {
     private static final int MAIN_ACTIVITY_REQUEST = 1;
     private GameInfo gameInfo;
     private String myTeamName;
@@ -40,6 +42,7 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
     private int othersInTeamFoul;
     private int playerTurnover;
     private int othersInTeamTurnover;
+    private ImageView finishButton;
 
 
     private double myTeamScaleScore;
@@ -58,15 +61,9 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
     private double othersInTeamScaleFoul;
     private double playerScaleTurnover;
     private double othersInTeamScaleTurnover;
-<<<<<<< HEAD
-    
-    private static final double barWidth = 160.0;
-    
-=======
 
     private static final double barWidth = 160.0;
-
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
+   
 
 
     @Override
@@ -81,15 +78,27 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         opposeTeamName = (String) gameHistInfo.getString("opposingTeamName");
         playerName = (String) gameHistInfo.getString("playerName");
 
+        finishButton = (ImageView) findViewById(R.id.checkmarkImageView);
+        finishButton.setOnTouchListener(this);
+
+
         updatePlayerStats();
     }
 
-    public void onClick(View v) {
-
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+            if (view.getId() == R.id.checkmarkImageView) {
+                //Intent intent = new Intent(this, HomePageActivity.class);
+                //startActivity(intent);
+                finish();
+                return true;
+            }
+        }
+        return false;
     }
 
     public void updatePlayerStats(){
-<<<<<<< HEAD
 
         // Team Name and Player Name
         TextView myTeamLabel = (TextView) findViewById(R.id.myTeamLabel);
@@ -107,25 +116,7 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         TextView playerALabel = (TextView) findViewById(R.id.playerALabel);
         playerALabel.setText(playerName);
 
-=======
 
-        // Team Name and Player Name
-        TextView myTeamLabel = (TextView) findViewById(R.id.myTeamLabel);
-        myTeamLabel.setText(myTeamName);
-
-        TextView opposeTeamLabel = (TextView) findViewById(R.id.opposeTeamLabel);
-        opposeTeamLabel.setText(opposeTeamName);
-
-        TextView teamALabel = (TextView) findViewById(R.id.teamALabel);
-        teamALabel.setText(myTeamName);
-
-        TextView teamBLabel = (TextView) findViewById(R.id.teamBLabel);
-        teamBLabel.setText(opposeTeamName);
-
-        TextView playerALabel = (TextView) findViewById(R.id.playerALabel);
-        playerALabel.setText(playerName);
-
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
         // Game Score
         myTeamScore = gameInfo.myTeamScore();
         TextView playerPoints = (TextView) findViewById(R.id.myTeamScore);
@@ -202,7 +193,45 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         // detail Bar
         myTeamScaleScore = ((double) (myTeamScore) / (double) (myTeamScore + opposingTeamScore)) * barWidth;
         setGraphBar(R.id.ourTeamPointBar, myTeamScaleScore);
-<<<<<<< HEAD
+
+        opposingTeamScaleScore = ((double) (opposingTeamScore) / (double) (myTeamScore + opposingTeamScore)) * barWidth;
+        setGraphBar(R.id.opposeTeamPointBar, opposingTeamScaleScore);
+
+        myTeamScaleRebound = ((double) (myTeamRebound) / (double) (myTeamRebound + opposingTeamRebound)) * barWidth;
+        setGraphBar(R.id.ourTeamReboundBar, myTeamScaleRebound);
+        opposingTeamScaleRebound = ((double) (opposingTeamRebound) / (double) (myTeamRebound + opposingTeamRebound)) * barWidth;
+        setGraphBar(R.id.opposeTeamReboundBar, opposingTeamScaleRebound);
+
+        myTeamScaleFoul = ((double) (myTeamFoul) / (double) (myTeamFoul + opposingTeamFoul)) * barWidth;
+        setGraphBar(R.id.ourTeamFoulBar, myTeamScaleFoul);
+        opposingTeamScaleFoul = ((double) (opposingTeamFoul) / (double) (myTeamFoul + opposingTeamFoul)) * barWidth;
+        setGraphBar(R.id.opposeTeamFoulBar, opposingTeamScaleFoul);
+
+        myTeamScaleTurnover = ((double) (myTeamTurnover) / (double) (myTeamTurnover + opposingTeamTurnover)) * barWidth;
+        setGraphBar(R.id.ourTeamTurnoverBar, myTeamScaleTurnover);
+        opposingTeamScaleTurnover = ((double) (opposingTeamTurnover) / (double) (myTeamTurnover + opposingTeamTurnover)) * barWidth;
+        setGraphBar(R.id.opposeTeamTurnoverBar, opposingTeamScaleTurnover);
+
+        playerScaleScore = ((double) (playerScore) / (double) (playerScore + othersInTeamScore)) * barWidth;
+        setGraphBar(R.id.ourPlayerPointBar, playerScaleScore);
+        othersInTeamScaleScore = ((double) (othersInTeamScore) / (double) (playerScore + othersInTeamScore)) * barWidth;
+        setGraphBar(R.id.opposePlayerPointBar, othersInTeamScaleScore);
+
+        playerScaleRebound = ((double) (playerRebound) / (double) (playerRebound + othersInTeamRebound)) * barWidth;
+        setGraphBar(R.id.ourPlayerReboundBar, playerScaleRebound);
+        othersInTeamScaleRebound = ((double) (othersInTeamRebound) / (double) (playerRebound + othersInTeamRebound)) * barWidth;
+        setGraphBar(R.id.opposePlayerReboundBar, othersInTeamScaleRebound);
+
+        playerScaleFoul = ((double) (playerFoul) / (double) (playerFoul + othersInTeamFoul)) * barWidth;
+        setGraphBar(R.id.ourPlayerFoulBar, playerScaleFoul);
+        othersInTeamScaleFoul = ((double) (othersInTeamFoul) / (double) (playerFoul + othersInTeamFoul)) * barWidth;
+        setGraphBar(R.id.opposePlayerFoulBar, othersInTeamScaleFoul);
+
+        playerScaleTurnover = ((double) (playerTurnover) / (double) (playerTurnover + othersInTeamTurnover)) * barWidth;
+        setGraphBar(R.id.ourPlayerTurnoverBar, playerScaleTurnover);
+        othersInTeamScaleTurnover = ((double) (othersInTeamTurnover) / (double) (playerTurnover + othersInTeamTurnover)) * barWidth;
+        setGraphBar(R.id.opposePlayerTurnoverBar, othersInTeamScaleTurnover);
+
     }
     
     private void setGraphBar(int viewID, double newWidth) {
@@ -211,16 +240,6 @@ public class GameHistoryActivity extends Activity implements View.OnClickListene
         layoutParams.width = (int) newWidth;
         view.setLayoutParams(layoutParams);
     }
-=======
-    }
-
-    private void setGraphBar(int viewID, double newWidth) {
-        View view = findViewById(viewID);
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = (int) newWidth;
-        view.setLayoutParams(layoutParams);
-    }
->>>>>>> 334d1b4ef59846070b2bb4a5282a7d648e58faf6
 
 
 }
