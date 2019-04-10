@@ -18,7 +18,7 @@
         android:gravity="center"
         android:textSize="30sp"
         android:background="@drawable/button_main"
-        android:textColor="#ffffff"
+        android:textColor="#333333"
         android:text="@string/three_point" />
 
     <Button
@@ -31,7 +31,7 @@
         android:gravity="center"
         android:textSize="30sp"
         android:background="@drawable/button_main"
-        android:textColor="#ffffff"
+        android:textColor="#333333"
         android:text="@string/two_point" />
 
     <Button
@@ -43,7 +43,7 @@
         android:gravity="center"
         android:textSize="30sp"
         android:background="@drawable/button_main"
-        android:textColor="#ffffff"
+        android:textColor="#333333"
         android:text="@string/one_point" />
 
 </LinearLayout>

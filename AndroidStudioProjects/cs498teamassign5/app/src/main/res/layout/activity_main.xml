@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_main"
-    android:paddingTop="5dp" >
+    android:paddingTop="5dp"
+    android:textColor="#333333" >
 
     <TextView
         android:id="@+id/quarterNumber"
@@ -147,7 +148,6 @@
         android:layout_below="@+id/horizontal_bar"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_main"
-        android:textColor="#FFFFFF"
         android:text="@string/score" />
 
     <Button
@@ -157,7 +157,6 @@
         android:layout_below="@+id/ScoreButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_red"
-        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/miss" />
 
@@ -168,7 +167,6 @@
         android:layout_below="@+id/MissButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_main"
-        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/rebound" />
 
@@ -179,7 +177,6 @@
         android:layout_below="@+id/ReboundButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_main"
-        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/foul" />
 
@@ -190,7 +187,6 @@
         android:layout_below="@+id/FoulButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton_main"
-        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:text="@string/turnover" />
 
@@ -203,7 +199,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:background="#abccba"
-        android:textColor="#FFFFFF"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/PlayerStats" />
