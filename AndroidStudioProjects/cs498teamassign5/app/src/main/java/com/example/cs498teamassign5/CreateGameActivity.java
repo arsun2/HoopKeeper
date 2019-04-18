@@ -34,8 +34,6 @@ import java.util.Locale;
 
 public class CreateGameActivity extends Activity implements View.OnClickListener {
     private static final int MAIN_ACTIVITY_REQUEST = 1;
-    protected LocationListener locationListener;
-    protected LocationManager locationManager;
     private Button StartButton;
     private EditText locationText;
     private EditText timeText;
@@ -71,6 +69,18 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
         }
         System.out.printf("location %f %f\n", latitude, longitude);
 
+        Geocoder geocoder;
+        List<Address> addresses;
+        geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 5);
+            System.out.printf("size %d\n", addresses.size());
+            location = addresses.get(0).getAddressLine(0);
+            System.out.printf("knownName %s\n", location);
+        } catch (IOException e) {
+            System.out.printf("IOException\n");
+            e.printStackTrace();
+        }
 
         StartButton = (Button) findViewById(R.id.startButton);
         locationText = (EditText) findViewById(R.id.editText);
@@ -84,6 +94,7 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         String newString = dateFormat.format(date);
         timeText.setText(newString);
+        locationText.setText(location);
 
         StartButton.setOnClickListener(this);
         /*
