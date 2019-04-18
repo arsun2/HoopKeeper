@@ -41,7 +41,7 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
     private EditText myTeamText;
     private EditText opposingTeamText;
 
-    private String location = "";
+    private String location = "Type Location";
     private String time = "";
     private String myPlayer = "";
     private String myTeam = "";
@@ -74,9 +74,13 @@ public class CreateGameActivity extends Activity implements View.OnClickListener
         geocoder = new Geocoder(this, Locale.getDefault());
         try {
             addresses = geocoder.getFromLocation(latitude, longitude, 5);
-            System.out.printf("size %d\n", addresses.size());
-            location = addresses.get(0).getAddressLine(0);
-            System.out.printf("knownName %s\n", location);
+            if(addresses.size() > 0){
+                String addressLine = addresses.get(0).getAddressLine(0);
+                if(addresses != null){
+                    location = addressLine;
+                    System.out.printf("knownName %s\n", location);
+                }
+            }
         } catch (IOException e) {
             System.out.printf("IOException\n");
             e.printStackTrace();
