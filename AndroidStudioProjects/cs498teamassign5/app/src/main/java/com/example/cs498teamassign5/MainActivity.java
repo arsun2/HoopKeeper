@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private RecyclerView.LayoutManager layoutManager2;
     private int quarterNumber = 0;
     private GameInfo gameInfo;
-    private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4"};
+    private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4", "OT", "2OT"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
