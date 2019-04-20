@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:padding="18dp"
+        android:layout_marginTop="-5dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="24dp"
@@ -21,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:padding="18dp"
+        android:layout_marginTop="2dp"
         android:layout_alignTop="@+id/quarterNumber"
         android:layout_toLeftOf="@+id/quarterNumber"
         android:layout_toStartOf="@+id/ScoreButton"
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:padding="18dp"
+        android:layout_marginTop="2dp"
         android:layout_alignTop="@+id/quarterNumber"
         android:layout_toRightOf="@+id/quarterNumber"
         android:layout_toEndOf="@+id/ScoreButton"
@@ -41,6 +44,26 @@
         android:src="@drawable/rightarrow"
         android:contentDescription="@string/right_arrow"
         android:tint="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/PrevGameButton"
+        android:textSize="14dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Home" />
+
+    <Button
+        android:id="@+id/completeButton"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/NextGameButton"
+        android:textSize="14dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Summary" />
 
     <ImageView
         android:id="@+id/scoreImageView"
@@ -115,11 +138,11 @@
         android:id="@+id/horizontal_bar"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="18dp"
         android:layout_below="@+id/scoreImageView"
         android:layout_centerHorizontal="true"
-        android:background="#6C6C6C" />
+        android:background="#ffffff" />
 
     <!-- Buttons -->
     <Button
@@ -132,6 +155,8 @@
         android:layout_alignRight="@+id/TurnoverButton"
         android:background="@drawable/roundbutton_main"
         android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/score" />
 
     <Button
@@ -145,6 +170,8 @@
         android:background="@drawable/roundbutton_red"
         android:layout_marginTop="18dp"
         android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/miss" />
 
     <Button
@@ -157,6 +184,8 @@
         android:layout_alignRight="@+id/TurnoverButton"
         android:background="@drawable/roundbutton_main"
         android:layout_marginTop="18dp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
         android:textSize="16sp"
         android:text="@string/rebound" />
 
@@ -171,6 +200,8 @@
         android:background="@drawable/roundbutton_main"
         android:layout_marginTop="18dp"
         android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/foul" />
 
     <Button
@@ -183,6 +214,8 @@
         android:background="@drawable/roundbutton_main"
         android:layout_marginTop="18dp"
         android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/turnover" />
 
     <Button
@@ -193,10 +226,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:background="#abccba"
+        android:background="#39a197"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/PlayerStats" />
 
     <!--this is the left vertical grey bar
@@ -244,25 +279,7 @@
         android:textAlignment="textEnd"
         android:layout_gravity="end" />
 
-    <Button
-        android:id="@+id/completeButton"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:textSize="12dp"
-        android:text="Summary" />
 
-    <Button
-        android:id="@+id/finishButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/completeButton"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/PrevGameButton"
-        android:layout_toStartOf="@+id/PrevGameButton"
-        android:text="Home" />
 
 </RelativeLayout>
 
