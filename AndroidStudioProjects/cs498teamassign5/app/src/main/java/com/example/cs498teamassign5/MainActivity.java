@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private RecyclerView.LayoutManager layoutManager2;
     private int quarterNumber = 0;
     private GameInfo gameInfo;
-    private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4", "OT", "2OT"};
+    private String [] quarterString = new String [] {"Q1", "Q2", "Q3", "Q4", "OT", "2OT", "3OT"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,7 +227,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         updateScoreAndStat();
         initializeRecyclerView();
 
-        if(quarterNumber == 5 ) {
+        if(quarterNumber == 6 ) {
             NextGameButton.setVisibility(View.INVISIBLE);
         } else if (quarterNumber == 0) {
             PrevGameButton.setVisibility(View.INVISIBLE);
