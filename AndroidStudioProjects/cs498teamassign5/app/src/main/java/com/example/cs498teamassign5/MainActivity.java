@@ -75,6 +75,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         FoulButton = (Button) findViewById(R.id.FoulButton);
         TurnoverButton = (Button) findViewById(R.id.TurnoverButton);
         PrevGameButton = (ImageButton) findViewById(R.id.PrevGameButton);
+        PrevGameButton.setVisibility(View.INVISIBLE);
         NextGameButton = (ImageButton) findViewById(R.id.NextGameButton);
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
         CompleteButton = (Button) findViewById(R.id.completeButton);
@@ -95,7 +96,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PlayerStatButton.setOnClickListener(this);
         CompleteButton.setOnClickListener(this);
         FinishButton.setOnClickListener(this);
-
     }
 
     @Override
@@ -216,27 +216,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void switchQuarterHelper(boolean nextGame){
         //quarterNumber is zero-indexed!!
-        if((quarterNumber == 3 && nextGame) || (quarterNumber == 0 && !nextGame)){
-            Context context = getApplicationContext();
-            CharSequence text;
-            if(nextGame){
-                text = "Last Quarter!";
-            } else {
-                text = "First Quarter!";
-            }
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+
+        if(nextGame){
+            quarterNumber++;
         } else {
-            if(nextGame){
-                quarterNumber++;
-            } else {
-                quarterNumber--;
-            }
-            quarterlyGameLog = gameInfo.get(quarterNumber);
-            initializeQuarter();
-            updateScoreAndStat();
-            initializeRecyclerView();
+            quarterNumber--;
         }
+        quarterlyGameLog = gameInfo.get(quarterNumber);
+        initializeQuarter();
+        updateScoreAndStat();
+        initializeRecyclerView();
+
+        if(quarterNumber == 5 ) {
+            NextGameButton.setVisibility(View.INVISIBLE);
+        } else if (quarterNumber == 0) {
+            PrevGameButton.setVisibility(View.INVISIBLE);
+        } else {
+            NextGameButton.setVisibility(View.VISIBLE);
+            PrevGameButton.setVisibility(View.VISIBLE);
+        }
+
     }
 }
