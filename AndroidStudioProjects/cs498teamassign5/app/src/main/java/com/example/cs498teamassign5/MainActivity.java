@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,6 +33,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageButton NextGameButton;
     private Button CompleteButton;
     private QuarterlyGameLog quarterlyGameLog;
+    private TextView quarterNumberView;
+    private GestureDetectorCompat gestureDetectorCompat = null;
 
     private String myTeamName = "";
     private String opposingTeamName = "";
@@ -91,17 +97,40 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ReboundButton.setOnClickListener(this);
         FoulButton.setOnClickListener(this);
         TurnoverButton.setOnClickListener(this);
-        PrevGameButton.setOnClickListener(this);
-        NextGameButton.setOnClickListener(this);
+//        PrevGameButton.setOnClickListener(this);
+//        NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
         CompleteButton.setOnClickListener(this);
         FinishButton.setOnClickListener(this);
+
+        quarterNumberView = findViewById(R.id.quarterNumber);
+
+        DetectSwipeGestureListener gestureListener = new DetectSwipeGestureListener();
+        gestureListener.setActivity(this);
+        gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         updateScoreAndStat();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // Pass activity on touch event to the gesture detector.
+        gestureDetectorCompat.onTouchEvent(event);
+        // Return true to tell android OS that event has been consumed, do not pass it to other event listeners.
+        return true;
+    }
+
+    public void displayMessage(String message)
+    {
+        if(quarterNumberView!=null)
+        {
+            // Display text in the text view.
+            quarterNumberView.setText(message);
+        }
     }
 
     public void onClick(View v) {
