@@ -26,7 +26,6 @@ public class GameInfo implements Serializable {
     public QuarterlyGameLog get(int index){
         System.out.printf("QuarterlyGameLog get %d, size(): %d\n", index, quarterlyGameLogs.size());
         if(quarterlyGameLogs.size() <= index){
-            System.out.printf("test test\n");
             quarterlyGameLogs.add(new QuarterlyGameLog());
         }
         return quarterlyGameLogs.get(index);
