@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Vibrator;
@@ -34,6 +35,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView opposingTeamNameT;
     private ImageButton PrevGameButton;
     private ImageButton NextGameButton;
+    private ImageView quarter1Dot;
+    private ImageView quarter2Dot;
+    private ImageView quarter3Dot;
+    private ImageView quarter4Dot;
+    private ImageView ot1Dot;
+    private ImageView ot2Dot;
+    private ImageView ot3Dot;
     private Button CompleteButton;
     private QuarterlyGameLog quarterlyGameLog;
     private TextView quarterNumberView;
@@ -89,6 +97,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PlayerStatButton = (Button) findViewById(R.id.PlayerButton);
         CompleteButton = (Button) findViewById(R.id.completeButton);
         FinishButton = (Button) findViewById(R.id.finishButton);
+        quarter1Dot = (ImageView) findViewById(R.id.quarterOneButton);
+        quarter2Dot = (ImageView) findViewById(R.id.quarterTwoButton);
+        quarter3Dot = (ImageView) findViewById(R.id.quarterThreeButton);
+        quarter4Dot = (ImageView) findViewById(R.id.quarterFourButton);
+        ot1Dot = (ImageView) findViewById(R.id.overtimeOneButton);
+        ot2Dot = (ImageView) findViewById(R.id.overtimeTwoButton);
+        ot3Dot = (ImageView) findViewById(R.id.overtimeThreeButton);
 
         myTeamNameT = (TextView) findViewById(R.id.myTeamName);
         opposingTeamNameT = (TextView) findViewById(R.id.opposingTeamName);
@@ -111,6 +126,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         DetectSwipeGestureListener gestureListener = new DetectSwipeGestureListener();
         gestureListener.setActivity(this);
         gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
+
+        quarter1Dot.setImageAlpha(255);
+        quarter2Dot.setImageAlpha(100);
+        quarter3Dot.setImageAlpha(100);
+        quarter4Dot.setImageAlpha(100);
+        ot1Dot.setImageAlpha(100);
+        ot2Dot.setImageAlpha(100);
+        ot3Dot.setImageAlpha(100);
     }
 
     @Override
@@ -278,6 +301,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else {
             NextGameButton.setVisibility(View.VISIBLE);
             PrevGameButton.setVisibility(View.VISIBLE);
+        }
+
+        quarter1Dot.setImageAlpha(100);
+        quarter2Dot.setImageAlpha(100);
+        quarter3Dot.setImageAlpha(100);
+        quarter4Dot.setImageAlpha(100);
+        ot1Dot.setImageAlpha(100);
+        ot2Dot.setImageAlpha(100);
+        ot3Dot.setImageAlpha(100);
+
+        //quarter nums are 0 indexed
+        if(quarterNumber == 0){
+            quarter1Dot.setImageAlpha(255);
+        } else if(quarterNumber == 1){
+            quarter2Dot.setImageAlpha(255);
+        } else if(quarterNumber == 2){
+            quarter3Dot.setImageAlpha(255);
+        } else if(quarterNumber == 3){
+            quarter4Dot.setImageAlpha(255);
+        } else if(quarterNumber == 4){
+            ot1Dot.setImageAlpha(255);
+        } else if(quarterNumber == 5){
+            ot2Dot.setImageAlpha(255);
+        } else if(quarterNumber == 6){
+            ot3Dot.setImageAlpha(255);
         }
 
     }
