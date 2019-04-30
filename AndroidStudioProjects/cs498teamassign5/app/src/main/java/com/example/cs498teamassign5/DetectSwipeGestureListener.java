@@ -33,10 +33,10 @@ public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
         // Get swipe delta value in x axis.
-        float deltaX = e1.getX() - e2.getX();
+        float deltaX = e2.getX() - e1.getX();
 
         // Get swipe delta value in y axis.
-        float deltaY = e1.getY() - e2.getY();
+        float deltaY = e2.getY() - e1.getY();
 
         // Get absolute value.
         float deltaXAbs = Math.abs(deltaX);

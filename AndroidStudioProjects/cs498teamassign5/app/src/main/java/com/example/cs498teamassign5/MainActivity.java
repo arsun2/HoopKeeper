@@ -247,9 +247,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //quarterNumber is zero-indexed!!
 
         if(nextGame){
-            quarterNumber++;
+            if(quarterNumber == 6) {
+                // Out of index
+                return;
+            } else {
+                quarterNumber++;
+            }
         } else {
-            quarterNumber--;
+            if(quarterNumber == 0) {
+                // Out of index
+                return;
+            } else {
+                quarterNumber--;
+            }
         }
         quarterlyGameLog = gameInfo.get(quarterNumber);
         initializeQuarter();
