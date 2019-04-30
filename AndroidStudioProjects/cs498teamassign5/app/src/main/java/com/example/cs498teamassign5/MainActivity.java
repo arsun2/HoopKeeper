@@ -3,7 +3,9 @@ package com.example.cs498teamassign5;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Vibrator;
 
 import java.util.ArrayList;
 
@@ -251,6 +254,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 // Out of index
                 return;
             } else {
+                vibrateHelper();
                 quarterNumber++;
             }
         } else {
@@ -258,6 +262,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 // Out of index
                 return;
             } else {
+                vibrateHelper();
                 quarterNumber--;
             }
         }
@@ -266,7 +271,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         updateScoreAndStat();
         initializeRecyclerView();
 
-        if(quarterNumber == 6 ) {
+        if(quarterNumber == 6) {
             NextGameButton.setVisibility(View.INVISIBLE);
         } else if (quarterNumber == 0) {
             PrevGameButton.setVisibility(View.INVISIBLE);
@@ -275,5 +280,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
             PrevGameButton.setVisibility(View.VISIBLE);
         }
 
+    }
+
+    private void vibrateHelper(){
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        System.out.print("vibrated\n");
+    // Vibrate for 500 milliseconds
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            //deprecated in API 26
+            v.vibrate(500);
+        }
     }
 }
