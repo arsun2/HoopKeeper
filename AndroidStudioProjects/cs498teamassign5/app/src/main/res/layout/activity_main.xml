@@ -107,9 +107,9 @@
         android:id="@+id/myTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/myTeamName"
+        android:layout_alignStart="@+id/myTeamName"
         android:layout_below="@+id/myTeamName"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="18dp"
         android:fontFamily="sans-serif-medium"
         android:shadowColor="#80000000"
         android:shadowDy="5"
@@ -123,8 +123,9 @@
         android:id="@+id/opposingTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/opposingTeam_recycler_view"
+        android:layout_alignEnd="@+id/opposingTeamName"
         android:layout_below="@+id/opposingTeamName"
+        android:layout_marginEnd="22dp"
         android:fontFamily="sans-serif-medium"
         android:shadowColor="#80000000"
         android:shadowDy="5"
@@ -253,7 +254,10 @@
         android:layout_marginLeft="370dp"
         android:background="#FF0000FF" />
     android:layout_alignRight="@+id/opposingTeamScore"-->
-
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/horizontal_bar">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/myTeam_recycler_view"
         android:layout_width="wrap_content"
@@ -264,20 +268,26 @@
         android:layout_below="@+id/horizontal_bar"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/ScoreButton" />
+    </ScrollView>
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/horizontal_bar">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/opposingTeam_recycler_view"
         android:scrollbars="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="18dp"
         android:layout_below="@id/horizontal_bar"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/ScoreButton"
         android:textAlignment="textEnd"
         android:layout_gravity="end" />
+    </ScrollView>
 
 
 
