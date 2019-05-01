@@ -10,11 +10,12 @@
         android:id="@+id/quarterNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="18dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/scoreImageView"
+        android:layout_marginTop="10dp"
         android:textSize="24dp"
+        android:text="Q1"
         android:textColor="#000000" />
 
     <ImageView
@@ -85,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:padding="18dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="-12dp"
         android:layout_alignTop="@+id/quarterNumber"
         android:layout_toLeftOf="@+id/quarterNumber"
         android:layout_toStartOf="@+id/ScoreButton"
@@ -99,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:padding="18dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="-12dp"
         android:layout_alignTop="@+id/quarterNumber"
         android:layout_toRightOf="@+id/quarterNumber"
         android:layout_toEndOf="@+id/ScoreButton"

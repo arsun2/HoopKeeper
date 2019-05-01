@@ -115,8 +115,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ReboundButton.setOnClickListener(this);
         FoulButton.setOnClickListener(this);
         TurnoverButton.setOnClickListener(this);
-//        PrevGameButton.setOnClickListener(this);
-//        NextGameButton.setOnClickListener(this);
+        PrevGameButton.setOnClickListener(this);
+        NextGameButton.setOnClickListener(this);
         PlayerStatButton.setOnClickListener(this);
         CompleteButton.setOnClickListener(this);
         FinishButton.setOnClickListener(this);
