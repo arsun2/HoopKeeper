@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/quarterOneButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@+id/quarterNumber"
         android:layout_toLeftOf="@+id/quarterTwoButton"
         android:background="@android:color/transparent"
@@ -29,8 +29,8 @@
 
     <ImageView
         android:id="@+id/quarterTwoButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@+id/quarterNumber"
         android:layout_toLeftOf="@+id/quarterThreeButton"
         android:background="@android:color/transparent"
@@ -38,8 +38,8 @@
 
     <ImageView
         android:id="@+id/quarterThreeButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@+id/quarterNumber"
         android:layout_toLeftOf="@+id/quarterFourButton"
         android:background="@android:color/transparent"
@@ -47,8 +47,8 @@
 
     <ImageView
         android:id="@+id/quarterFourButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@+id/quarterNumber"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
@@ -56,30 +56,36 @@
 
     <ImageView
         android:id="@+id/overtimeOneButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:padding="4.5dp"
+        android:rotation="45"
         android:layout_below="@+id/quarterNumber"
         android:layout_toRightOf="@+id/quarterFourButton"
         android:background="@android:color/transparent"
-        android:src="@drawable/quarter_round"/>
+        android:src="@drawable/quarter_diamond"/>
 
     <ImageView
         android:id="@+id/overtimeTwoButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:padding="4.5dp"
+        android:rotation="45"
         android:layout_below="@+id/quarterNumber"
         android:layout_toRightOf="@+id/overtimeOneButton"
         android:background="@android:color/transparent"
-        android:src="@drawable/quarter_round"/>
+        android:src="@drawable/quarter_diamond"/>
 
     <ImageView
         android:id="@+id/overtimeThreeButton"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:padding="4.5dp"
+        android:rotation="45"
         android:layout_below="@+id/quarterNumber"
         android:layout_toRightOf="@+id/overtimeTwoButton"
         android:background="@android:color/transparent"
-        android:src="@drawable/quarter_round"/>
+        android:src="@drawable/quarter_diamond"/>
 
     <ImageButton
         android:id="@+id/PrevGameButton"
@@ -114,7 +120,7 @@
         android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/PrevGameButton"
-        android:textSize="14dp"
+        android:textSize="13dp"
         android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-medium"
         android:text="Home" />
@@ -124,7 +130,7 @@
         android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/NextGameButton"
-        android:textSize="14dp"
+        android:textSize="13dp"
         android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-medium"
         android:text="Summary" />
